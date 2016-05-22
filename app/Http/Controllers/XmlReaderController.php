@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use XmlParser;
-
+use App\Models\Type;
+use App\Models\Market;
+use App\Models\participant;
 
 class XmlReaderController extends Controller
 {
@@ -16,64 +18,45 @@ class XmlReaderController extends Controller
 
 		$xml     = XmlParser::load('http://localhost/parleyvaluebets/xmlFiles/Baseball_16_06_2016.xml');
 		$content = $xml->getContent();
-		$valores = [];
-		$count   = 0;
-		$aux     = 0;
 
 		foreach ($content->response->williamhill->class->type as $type) {
-
-			$valores[$count] = ['id' 					   => '',
-								'name'                     => '',
-								'date'                     => '',
-								'time'                     => '',
-								'betTillDate'              => '',
-								'betTillTime'              => '',
-								'lastUpdateDate'           => '',
-								'lastUpdateTime'           => '',
-								'placeAvailable'           => '',
-								'forcastAvailable'         => '',
-								'tricastAvailable'         => '',
-								'eachwayAvailable'         => '',
-								'cashoutAvailable'         => '',
-								'startingPriceAvailable'   => '',
-								'livePriceAvailable'       => '',
-								'guarenteedPriceAvailable' => '',
-								'firstPriceAvailable'      => '',
-								'participant'              => []];
-
+				$typeNew                 = new  Type();
+				$typeNew->typeID         = $type['id'];
+				$typeNew->name           = $type['name'];
+				$typeNew->lastUpdateDate = $type['lastUpdateDate'];
+				$typeNew->lastUpdateTime = $type['lastUpdateTime'];
+				$typeNew->save();
+	
 			foreach ($type->market as $market) {
-				$valores[$count]['id']                       = $market['id'];
-				$valores[$count]['name']                     = $market['name'];
-				$valores[$count]['date']                     = $market['date'];
-				$valores[$count]['time']                     = $market['time'];
-				$valores[$count]['betTillDate']              = $market['betTillDate'];
-				$valores[$count]['betTillTime']              = $market['betTillTime'];
-				$valores[$count]['lastUpdateDate']           = $market['lastUpdateDate'];
-				$valores[$count]['lastUpdateTime']           = $market['lastUpdateTime'];
-				$valores[$count]['placeAvailable']           = $market['placeAvailable'];
-				$valores[$count]['forcastAvailable']         = $market['forcastAvailable'];
-				$valores[$count]['tricastAvailable']         = $market['tricastAvailable'];
-				$valores[$count]['eachwayAvailable']         = $market['eachwayAvailable'];
-				$valores[$count]['cashoutAvailable']         = $market['cashoutAvailable'];
-				$valores[$count]['startingPriceAvailable']   = $market['startingPriceAvailable'];
-				$valores[$count]['livePriceAvailable']       = $market['livePriceAvailable'];
-				$valores[$count]['guarenteedPriceAvailable'] = $market['guarenteedPriceAvailable'];
-				$valores[$count]['firstPriceAvailable']      = $market['firstPriceAvailable'];
-
+					$marketNew                 = new  Market();
+					$marketNew->marketID       = $market['id'];
+					$marketNew->name           = $market['name'];
+					$marketNew->betTillDate    = $market['betTillDate'];
+					$marketNew->betTillTime    = $market['betTillTime'];
+					$marketNew->lastUpdateDate = $market['lastUpdateDate'];
+					$marketNew->lastUpdateTime = $market['lastUpdateTime'];
+					$marketNew->type_id        = $typeNew->id;
+					$marketNew->save();
+				
 				foreach ($market->participant as $participant) {
-					$valores[$count]['participant'][$aux]['id']             = $participant['id'];
-					$valores[$count]['participant'][$aux]['name']           = $participant['name'];
-					$valores[$count]['participant'][$aux]['odds']           = $participant['odds'];
-					$valores[$count]['participant'][$aux]['oddsDecimal']    = $participant['oddsDecimal'];
-					$valores[$count]['participant'][$aux]['lastUpdateDate'] = $participant['lastUpdateDate'];
-					$valores[$count]['participant'][$aux]['lastUpdateTime'] = $participant['lastUpdateTime'];
-					$valores[$count]['participant'][$aux]['handicap']       = $participant['handicap'];
-					$aux = $aux + 1;
- 				}
-				$count = $count + 1;
+						$participantNew                 = new  Participant();
+						$participantNew->participantID  = $participant['id'];
+						$participantNew->name           = $participant['name'];
+						$participantNew->oddsDecimal    = $participant['oddsDecimal'];
+						$participantNew->lastUpdateDate = $participant['lastUpdateDate'];
+						$participantNew->lastUpdateTime = $participant['lastUpdateTime'];
+						$participantNew->market_id      = $marketNew->id;
+						$participantNew->save();
+				}
 			}
 		}
-	return view('welcome', compact('valores'));
+
+		$type        =Type::all();
+		$market      =Market::all();
+		$participant =Participant::all();
+
+		dd($type, $market, $participant);
+		return view('welcome', compact('valores'));
     }
 
 }
