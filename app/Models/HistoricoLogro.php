@@ -4,13 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class HistoricoLogro extends Model
 {
 	protected $guarded = [];
 	
     public function markets()
     {
-        return $this->hasMany('App\Models\Market');
+        return $this->belongsTo('App\Models\Market');
     }
-
 }

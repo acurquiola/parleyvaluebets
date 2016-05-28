@@ -8,13 +8,18 @@ class Market extends Model
 {
 	protected $guarded = [];
 	
-    public function Participant()
+    public function participants()
     {
-        return $this->hasMany('App\Participant');
+        return $this->hasMany('App\Models\Participant');
+    }
+
+    public function historico()
+    {
+        return $this->hasMany('App\Models\HistoricoLogro');
     }
     
     public function types()
     {
-        return $this->belongsTo('App\Type');
+        return $this->belongsTo('App\Models\Type');
     }
 }

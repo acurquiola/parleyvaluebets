@@ -10,6 +10,6 @@ class Participant extends Model
 	
     public function markets()
     {
-        return $this->belongsTo('App\Market');
+        return $this->belongsTo('App\Models\Market');
     }
 }
