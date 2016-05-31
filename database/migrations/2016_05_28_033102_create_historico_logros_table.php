@@ -16,7 +16,7 @@ class CreateHistoricoLogrosTable extends Migration
             $table->increments('id');
             $table->integer('participantID');
             $table->string('name');
-            $table->date('oddsDecimal');    
+            $table->float('oddsDecimal', 4,2);       
             $table->date('lastUpdateDate');
             $table->time('lastUpdateTime');
             $table->integer('market_id')->unsigned();
