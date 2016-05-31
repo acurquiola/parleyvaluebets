@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/',  'xmlReaderController@index');
+Route::get('/',  'XmlReaderController@index');
 

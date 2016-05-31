@@ -58,7 +58,7 @@ class XmlReaderController extends Controller
 							$participantNew->market_id      = $marketNew->id;
 							$participantNew->save();
 					}
-				}elseif (($markets->lastUpdateDate < $market['lastUpdateDate']) || (($markets->lastUpdateDate <= $market['lastUpdateDate'])  && $markets->lastUpdateTime < $market['lastUpdateTime'] )){
+				}elseif (($markets->lastUpdateDate < $market['lastUpdateDate']) || (($markets->lastUpdateDate = $market['lastUpdateDate'])  && $markets->lastUpdateTime < $market['lastUpdateTime'] )){
 					//Si existe el market buscado y los datos de última actualización son menores a los leidos se registran los participants en la tabla histórico
 					foreach ($market->participant as $participant) {
 						$marketNew = $markets;
