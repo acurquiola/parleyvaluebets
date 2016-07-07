@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- OXi dbPublish-->
+<!-- Copyright (c) 2001, 2002, 2003 Orbis Technology Ltd. All rights reserved.-->
+<oxip version="7.1" created="2016-05-16 16:55:21" lastMsgId=""  requestTime="0.0269">
+<response request="getHierarchyByMarketType" code="001" message="success" debug="" provider="williamhill">
+<williamhill>
+<class id="15" name="Baseball" maxRepDate="2016-05-16" maxRepTime="02:14:03">
+<type
+id="226"
+name="MLB"
+url="http://sports.williamhill.com/bet/betting/t/226"
+lastUpdateDate="2016-04-07"
+lastUpdateTime="01:09:35">
+<market
+id="367777986"
+name="BOS Red Sox (R Porcello) @ KC Royals (Y Ventura) - First Player To Hit A Home Run"
+url="http://sports.williamhill.com/bet/en-gb/betting/e/9318812/BOS%2dRed%2dSox%2d%28R%2dPorcello%29%2d%40%2dKC%2dRoyals%2d%28Y%2dVentura%29"
+date="2016-05-17"
+time="00:05:00"
+betTillDate="2016-05-17"
+betTillTime="00:05:00"
+lastUpdateDate="2016-07-16"
+lastUpdateTime="02:14:03"
+placeAvailable="N"
+forcastAvailable="N"
+tricastAvailable="N"
+eachwayAvailable="N"
+cashoutAvailable="N"
+startingPriceAvailable="N"
+livePriceAvailable="Y"
+guarenteedPriceAvailable="N"
+firstPriceAvailable="N"
+>
+<participant
+name="No Home Run"
+id="1202526209"
+odds="4/1"
+oddsDecimal="5.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:04"
+handicap=""/>
+<participant
+name="Any Other Royal"
+id="1202526208"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:04"
+handicap=""/>
+<participant
+name="Kendrys Morales"
+id="1202526207"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Cheslor Cuthbert"
+id="1202526206"
+odds="20/1"
+oddsDecimal="21.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Jarrod Dyson"
+id="1202526204"
+odds="33/1"
+oddsDecimal="34.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Lorenzo Cain"
+id="1202526203"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Alex Gordon"
+id="1202526201"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Alcides Escobar"
+id="1202526199"
+odds="33/1"
+oddsDecimal="34.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Omar Infante"
+id="1202526198"
+odds="28/1"
+oddsDecimal="29.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Eric Hosmer"
+id="1202526197"
+odds="14/1"
+oddsDecimal="15.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Salvador Perez"
+id="1202526196"
+odds="20/1"
+oddsDecimal="21.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Any Other Red Sox"
+id="1202526195"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Christian Vazquez"
+id="1202526194"
+odds="33/1"
+oddsDecimal="34.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Jackie Bradley Jr"
+id="1202526193"
+odds="25/1"
+oddsDecimal="26.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Xander Bogaerts"
+id="1202526191"
+odds="20/1"
+oddsDecimal="21.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Brock Holt"
+id="1202526189"
+odds="40/1"
+oddsDecimal="41.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Travis Shaw"
+id="1202526187"
+odds="18/1"
+oddsDecimal="19.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Hanley Ramirez"
+id="1202526186"
+odds="14/1"
+oddsDecimal="15.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="David Ortiz"
+id="1202526184"
+odds="12/1"
+oddsDecimal="13.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Dustin Pedroia"
+id="1202526183"
+odds="25/1"
+oddsDecimal="26.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+<participant
+name="Mookie Betts"
+id="1202526181"
+odds="16/1"
+oddsDecimal="17.00"
+lastUpdateDate="2016-05-16"
+lastUpdateTime="02:14:03"
+handicap=""/>
+</market>
+</type>
+</class>
+<disclaimer>
+WHG (International) Ltd (&quot;We/Us&quot;) of 6/1 Waterport Place, Gibraltar, owns the XML Feed Website ( the &quot;Website&quot;) relating to information contained on its main trading website. By using the Website You agree to these full Terms of Use available at http://developer.williamhill.com
+</disclaimer>
+</williamhill>
+</response>
+</oxip>

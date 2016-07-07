@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- OXi dbPublish-->
+<!-- Copyright (c) 2001, 2002, 2003 Orbis Technology Ltd. All rights reserved.-->
+<oxip version="7.1" created="2016-05-15 17:39:37" lastMsgId=""  requestTime="0.1723">
+<response request="getHierarchyByMarketType" code="001" message="success" debug="" provider="williamhill">
+<williamhill>
+<class id="15" name="Baseball" maxRepDate="2016-05-15" maxRepTime="02:38:06">
+<type
+id="226"
+name="MLB"
+url="http://sports.williamhill.com/bet/betting/t/226"
+lastUpdateDate="2016-04-06"
+lastUpdateTime="01:54:06">
+<market
+id="367474434"
+name="STL Cardinals (M Leake) @ LA Dodgers (A Wood) - Player To Hit A Home Run"
+url="http://sports.williamhill.com/bet/en-gb/betting/e/9317155/STL%2dCardinals%2d%28M%2dLeake%29%2d%40%2dLA%2dDodgers%2d%28A%2dWood%29"
+date="2016-05-16"
+time="01:05:00"
+betTillDate="2016-05-16"
+betTillTime="01:05:00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+placeAvailable="N"
+forcastAvailable="N"
+tricastAvailable="N"
+eachwayAvailable="N"
+cashoutAvailable="N"
+startingPriceAvailable="N"
+livePriceAvailable="Y"
+guarenteedPriceAvailable="N"
+firstPriceAvailable="N"
+>
+<participant
+name="Any Other Dodger"
+id="1201508041"
+odds="13/2"
+oddsDecimal="7.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Yasiel Puig"
+id="1201508040"
+odds="5/1"
+oddsDecimal="6.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Joc Pederson"
+id="1201508039"
+odds="4/1"
+oddsDecimal="5.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Trayce Thompson"
+id="1201508038"
+odds="9/2"
+oddsDecimal="5.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Justin Turner"
+id="1201508037"
+odds="9/2"
+oddsDecimal="5.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Corey Seager"
+id="1201508036"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Howie Kendrick"
+id="1201508035"
+odds="7/1"
+oddsDecimal="8.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Adrian Gonzalez"
+id="1201508034"
+odds="4/1"
+oddsDecimal="5.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Yasmani Grandal"
+id="1201508033"
+odds="5/1"
+oddsDecimal="6.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Any Other Cardinal"
+id="1201508032"
+odds="13/2"
+oddsDecimal="7.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Stephen Piscotty"
+id="1201508031"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Randal Grichuk"
+id="1201508030"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Matt Holliday"
+id="1201508029"
+odds="4/1"
+oddsDecimal="5.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Matt Carpenter"
+id="1201508028"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Aledmys Diaz"
+id="1201508027"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Kolten Wong"
+id="1201508026"
+odds="13/2"
+oddsDecimal="7.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Brandon Moss"
+id="1201508025"
+odds="4/1"
+oddsDecimal="5.00"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+<participant
+name="Yadier Molina"
+id="1201508024"
+odds="11/2"
+oddsDecimal="6.50"
+lastUpdateDate="2016-05-15"
+lastUpdateTime="02:38:06"
+handicap=""/>
+</market>
+</type>
+</class>
+<disclaimer>
+WHG (International) Ltd (&quot;We/Us&quot;) of 6/1 Waterport Place, Gibraltar, owns the XML Feed Website ( the &quot;Website&quot;) relating to information contained on its main trading website. By using the Website You agree to these full Terms of Use available at http://developer.williamhill.com
+</disclaimer>
+</williamhill>
+</response>
+</oxip>
