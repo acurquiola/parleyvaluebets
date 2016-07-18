@@ -32,7 +32,7 @@ class XmlReaderController extends Controller
                         ->orderBy('betTillTime', 'ASC')
                         ->get();
 
-        return view('welcome', compact('markets'));
+        return view('home.partials.table', compact('markets'));
     }
 
     /**
@@ -211,6 +211,6 @@ class XmlReaderController extends Controller
                 }
             }
         }
-    return view('index');
+    return view('home.index');
     }
 }

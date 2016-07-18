@@ -14,8 +14,6 @@
                     <th>
                         <td align="center" colspan="6" >MARKET</td>
                     </th>
-                </thead>
-                <thead>
                     <th>
                         <td align="center" >ID</td>
                         <td align="center">Nombre</td>
