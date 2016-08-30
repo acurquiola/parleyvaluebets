@@ -16,7 +16,7 @@ class CreateParticipantsTable extends Migration
             $table->increments('id');
             $table->integer('participantID');
             $table->string('name');
-            $table->float('oddsDecimal', 4,2);    
+            $table->float('oddsDecimal', 8,3);    
             $table->date('lastUpdateDate');
             $table->time('lastUpdateTime');
             $table->boolean('isChange');

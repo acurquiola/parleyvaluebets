@@ -103,7 +103,7 @@ class XmlReaderController extends Controller
 
     public function getXml()
     {
-        $xml     = XmlParser::load('http://localhost/parleyvaluebets/xmlFiles/Baseball_16_06_2016.xml');
+        $xml     = XmlParser::load('http://185.81.165.215/baseball/Baseball.20160830+10:30:01');
         $content = $xml->getContent();
 
         foreach ($content->response->williamhill->class->type as $type) {

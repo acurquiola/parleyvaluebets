@@ -19,4 +19,9 @@ Route::group(['prefix' => 'Values/'], function () {
     Route::get('leerXML', 'XmlReaderController@getXml');
 	Route::resource('xml', 'XmlReaderController');
 });
+Route::group(['prefix' => 'deportes/'], function () {
+Route::get('ganadorDivision', 'BeisbolController@getDivisionWinner');
+Route::resource('beisbol', 'BeisbolController');
+});
+
 

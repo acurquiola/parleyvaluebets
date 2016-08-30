@@ -11,11 +11,13 @@
 							<ul class="nav nav-tabs ">
 								<li class="active">
 									<a href="#tab1" data-toggle="tab">
-									Página Inicial </a>
+										<strong>PÁGINA PRINCIPAL</strong>
+									</a>
 								</li>
 								<li>
 									<a href="#tab2" data-toggle="tab">
-									Reporte </a>
+										<strong>REPORTE</strong> 
+									</a>
 								</li>
 							</ul>
 							<div class="tab-content">
