@@ -20,7 +20,7 @@ Route::group(['prefix' => 'Values/'], function () {
 	Route::resource('xml', 'XmlReaderController');
 });
 Route::group(['prefix' => 'deportes/'], function () {
-Route::get('ganadorDivision', 'BeisbolController@getDivisionWinner');
+Route::get('beisbol/ganadorDivision', 'BeisbolController@getDivisionWinner');
 Route::resource('beisbol', 'BeisbolController');
 });
 
