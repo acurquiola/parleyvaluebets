@@ -9,14 +9,14 @@
 
 			<ol class="breadcrumb">
 				<li><a href="{{ URL::to('deportes/beisbol') }}">Béisbol</a></li>
-				<li><a class="active"><strong>Ganador de División</strong></a></li>
+				<li><a class="active"><strong>División Ganadora</strong></a></li>
 			</ol>
 			<div class="tabbable-panel" style="background-color: #fff">
 				<div class="tabbable-line">
 					<ul class="nav nav-tabs ">
 						<li class="active">
 							<a href="#tabCompeticiones" data-toggle="tab">
-								<strong>GANADOR DE DIVISIÓN</strong>
+								<strong>DIVISIÓN GANADORA</strong>
 							</a>
 						</li>
 					</ul>
@@ -40,14 +40,16 @@
 												</tr>
 											</thead>
 											<tbody>
+												<tr>													
+													<td  rowspan="{{ $market->participants->count()+1 }}" class="text-center" style="width: 20%;" >
+														{{ $market->betTillDate }}
+													</td>
+													<td  rowspan="{{ $market->participants->count()+1 }}"  class="text-center" style="width: 20%" >
+														{{ $market->betTillTime }}
+													</td>
+												</tr>
 												@foreach($market->participants as $participant)
 													<tr>
-														<td  class="text-center" style="width: 20%" >
-															{{ $market->betTillDate }}
-														</td>
-														<td  class="text-center" style="width: 20%" >
-															{{ $market->betTillTime }}
-														</td>
 														<td  class="text-center" style="width: 20%" >
 															{{ $participant->oddsDecimal }}
 														</td>

@@ -20,6 +20,11 @@ Route::group(['prefix' => 'Values/'], function () {
 	Route::resource('xml', 'XmlReaderController');
 });
 Route::group(['prefix' => 'deportes/'], function () {
+Route::get('beisbol/totalCarrerasEnPrimerInning', 'BeisbolController@getFirstInningTotalRun');
+Route::get('beisbol/divisionGanadora', 'BeisbolController@getWinningDivision');
+Route::get('beisbol/ganadorLigaNacional', 'BeisbolController@getNationalLeagueWinner');
+Route::get('beisbol/ganadorLigaAmericana', 'BeisbolController@getAmericanLeagueWinner');
+Route::get('beisbol/ganadorSerieMundial', 'BeisbolController@getWorldSerieWinner');
 Route::get('beisbol/ganadorDivision', 'BeisbolController@getDivisionWinner');
 Route::resource('beisbol', 'BeisbolController');
 });

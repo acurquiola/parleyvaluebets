@@ -103,7 +103,7 @@ class XmlReaderController extends Controller
 
     public function getXml()
     {
-        $xml     = XmlParser::load('http://185.81.165.215/baseball/Baseball.20160830+10:30:01');
+        $xml     = XmlParser::load('http://185.81.165.215/baseball/Baseball.20160901+03:00:01');
         $content = $xml->getContent();
 
         foreach ($content->response->williamhill->class->type as $type) {
@@ -162,7 +162,7 @@ class XmlReaderController extends Controller
                             $participantNew->oddsDecimal    = $participant['oddsDecimal'];
                             $participantNew->lastUpdateDate = $participant['lastUpdateDate'];
                             $participantNew->lastUpdateTime = $participant['lastUpdateTime'];
-                            $participantNew->market_id      = $marketNew->id;
+                            $participantNew->market_id      = $market->id;
                             $participantNew->save();
                         }else{
                             //Si existe se busca si tiene una incidencia en el histórico

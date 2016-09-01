@@ -24,14 +24,14 @@
 
 		    									<h5><strong>MLB</strong></h5>
 		                                            <ul class="nav navbar-nav col-sm-3" >
-		                                                <li class=" col-sm-12"><a href="#">Ganador de Serie Mundial</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Ganador de Liga Nacional</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Ganador de Liga Americana</a></li>                                               
-		                                                <li class=" col-sm-12"><a href="{{ action('BeisbolController@getDivisionWinner') }}">Ganador de División</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getWorldSerieWinner') }}">Ganador de Serie Mundial</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getNationalLeagueWinner') }}">Ganador de Liga Nacional</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getAmericanLeagueWinner') }}">Ganador de Liga Americana</a></li>                                               
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getDivisionWinner') }}">Ganador de División</a></li>
 		                                            </ul>
 		                                            <ul class="nav navbar-nav col-sm-3" >
 		                                                <li class=" col-sm-12"><a href="#">Liga Ganadora</a></li>
-		                                                <li class=" col-sm-12"><a href="#">División Ganadora</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getWinningDivision') }}">División Ganadora</a></li>
 		                                                <li class=" col-sm-12"><a href="#">Ganador del Partido</a></li>
 		                                                <li class=" col-sm-12"><a href="#">Cuota Oro</a></li>
 		                                            </ul>
@@ -43,7 +43,7 @@
 		                                            </ul>
 		                                            <ul class="nav navbar-nav col-sm-3" >
 		                                                <li class=" col-sm-12"><a href="#">Apuestas en la 1era entrada</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Total Carreras en la 1era entrada</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getFirstInningTotalRun') }}">Total Carreras en la 1era entrada</a></li>
 		                                            </ul>
 		                                        </li>
 		                                    </ul>
