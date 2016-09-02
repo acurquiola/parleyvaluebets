@@ -30,14 +30,14 @@
 		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getDivisionWinner') }}">Ganador de División</a></li>
 		                                            </ul>
 		                                            <ul class="nav navbar-nav col-sm-3" >
-		                                                <li class=" col-sm-12"><a href="#">Liga Ganadora</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getWinningLeague') }}">Liga Ganadora</a></li>
 		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getWinningDivision') }}">División Ganadora</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Ganador del Partido</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getMoneyLine') }}">Ganador del Partido</a></li>
 		                                                <li class=" col-sm-12"><a href="#">Cuota Oro</a></li>
 		                                            </ul>
 		                                            <ul class="nav navbar-nav col-sm-3" >
 		                                                <li class=" col-sm-12"><a href="#">Hándicap de Carreras</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Total de Carreras</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getTotalRuns') }}">Total de Carreras</a></li>
 		                                                <li class=" col-sm-12"><a href="#">Primer Jugador en dar Home Run</a></li>
 		                                                <li class=" col-sm-12"><a href="#">Jugador que conseguirá un Home Run</a></li>
 		                                            </ul>

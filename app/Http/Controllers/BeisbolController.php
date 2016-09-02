@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\Participant;
-use App\Models\Market;
-use Carbon\Carbon;
 
 class BeisbolController extends Controller
 {
@@ -20,106 +17,113 @@ class BeisbolController extends Controller
     {
     	return view('beisbol.index');
     }
-
-    public function getDivisionWinner(){
-    	$today   = Carbon::now();
-    	$name    = '- Division Winner';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
-
-    	return view('beisbol.divisionWinner', compact('markets'));
-    }
-
+    //Ganador de Serie Mundial
     public function getWorldSerieWinner(){
-    	$today   = Carbon::now();
-    	$name    = '- World Series Winner';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
+		$button  = 0;
+		$name    = '- World Series Winner';
+		$markets = getMarkets($name);
+		$nombre  = 'Ganador de Serie Mundial';
+		
+		// Todas las apuestas
+		$moreMarkets = 'World Series Winner';
+		$moreMarkets = getMarkets($moreMarkets);
+		
 
-    	return view('beisbol.worldSerieWinner', compact('markets'));
+    	return view('beisbol.competicion', compact('markets', 'moreMarkets', 'button', 'nombre'));
     }
 
+    //Ganador de Liga Nacional
     public function getNationalLeagueWinner(){
-    	$today   = Carbon::now();
-    	$name    = '- National League';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
+		$button      = 0;
+		$name        = '- National League';
+		$markets     = getMarkets($name);
+		$nombre      = 'Ganador de Liga Nacional';
+		
+		// Todas las apuestas
+		$moreMarkets = 'National League Outright';
+		$moreMarkets = getMarkets($moreMarkets);
 
-    	return view('beisbol.nationalLeagueWinner', compact('markets'));
+    	return view('beisbol.competicion', compact('markets', 'divisionGanadora', 'button', 'nombre', 'moreMarkets'));
     }
 
+    //Ganador de Liga Americana
     public function getAmericanLeagueWinner(){
-    	$today   = Carbon::now();
-    	$name    = '- American League';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
+		$button      = 0;
+		$name        = '- American League';
+		$markets     = getMarkets($name);
+		$nombre      = 'Ganador de Liga Americana';
+		
+		// Todas las apuestas
+		$moreMarkets = 'American League Outright';
+		$moreMarkets = getMarkets($moreMarkets);
 
-    	return view('beisbol.americanLeagueWinner', compact('markets'));
+
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
     }
 
+    //Ganador de División
+    public function getDivisionWinner(){
+		$button  = 1;
+		$name    = '- Division Winner';
+		$markets = getMarkets($name);
+		$nombre  = 'Ganador de División';
+
+
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    }
+
+    //Liga Ganadora
+    public function getWinningLeague(){
+		$button      = 0;
+		$name        = '- Winning League';
+		$markets     = getMarkets($name);
+		$nombre      = 'Liga Ganadora';
+		
+		// Todas las apuestas
+		$moreMarkets = 'World Series Winner';
+		$moreMarkets = getMarkets($moreMarkets);
+		
+
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
+    }
+
+    //División Ganadora
     public function getWinningDivision(){
-    	$today   = Carbon::now();
-    	$name    = '- Winning Division';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
+		$button      = 1;
+		$name        = '- Winning Division';
+		$markets     = getMarkets($name);
+		$nombre      = 'División Ganadora';
 
-    	return view('beisbol.winningDivision', compact('markets'));
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
     }
 
+    //Total Carreras en 1er Inning
     public function getFirstInningTotalRun(){
-    	$today   = Carbon::now();
-    	$name    = '- 1st Innings Total Runs';
-    	$markets = Market::with('participants')->where(function ($query) use ($today, $name){
-    		$query->where('betTillDate', '>', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%');
-    	})->orWhere(function($query) use ($today, $name){
-    		$query->where('betTillDate', '=', $today->toDateString())
-    		->where('name', 'like', '%'.$name.'%')
-    		->where('betTillTime', '>', $today->toTimeString());
-    	})->orderBy('betTillDate', 'ASC')
-    	->orderBy('betTillTime', 'ASC')
-    	->get();
+		$button  = 1;
+		$name    = '- 1st Innings Total Runs';
+		$markets = getMarkets($name);
+		$nombre  = 'Total de Carreras en 1er Inning';
 
-    	return view('beisbol.firstInningTotalRun', compact('markets'));
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    }
+
+    //Ganador del Partido
+    public function getMoneyLine(){
+		$button  = 1;
+		$name    = ' Money Line';
+		$markets = getMarkets($name);
+		$nombre  = 'Ganador del Partido';
+
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    }
+
+    //Total de carreras
+    public function getTotalRuns(){
+		$button  = 1;
+		$name    = '- Total Runs';
+		$markets = getMarkets($name);
+		$nombre  = 'Total de Carreras';
+
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
     }
 }

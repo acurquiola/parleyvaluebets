@@ -4,7 +4,7 @@
     		<header class="main-header">
     			<div class="container">
                     <div class="navbar-header">
-                        <a href='#' class="navbar-brand"><b>ParleyValue</b>Bets!</a>
+                        <a href='{{ URL::to('/') }}' class="navbar-brand"><b>ParleyValue</b>Bets!</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                             <i class="fa fa-bars"></i>
                         </button>
