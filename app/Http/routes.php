@@ -20,6 +20,7 @@ Route::group(['prefix' => 'Values/'], function () {
 	Route::resource('xml', 'XmlReaderController');
 });
 Route::group(['prefix' => 'deportes/'], function () {
+Route::get('beisbol/{market}/masApuestas', 'BeisbolController@getMoreMarkets');
 Route::get('beisbol/totalCarreras', 'BeisbolController@getTotalRuns');
 Route::get('beisbol/ganadorPartido', 'BeisbolController@getMoneyLine');
 Route::get('beisbol/ligaGanadora', 'BeisbolController@getWinningLeague');

@@ -1,7 +1,7 @@
 	<div class="collapse navbar-collapse">
 		@if($markets->count()>0)
 			@foreach($markets as $market)
-				<table class="table table-filter col-md-6">
+				<table class="table table-filter col-md-6" data-id="{{ $market->id }}">
 					<thead>
 						<tr>
 							<th align="center" colspan="4">{{ $market->name }}</th>
@@ -33,10 +33,17 @@
 						</tr>
 						@endforeach
 					</tbody>
+					<tfoot>
+						<tr>
+							@if($button == 1 && $nombre != 'Más Apuestas')
+								<td colspan="4">
+									<a href="{{ action('BeisbolController@getMoreMarkets',[$market->name]) }}" class="btn btn-primary pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> Apuestas</a>
+								</td>
+							@endif	
+						</tr>
+					</tfoot>
+					
 				</table>
-				@if($button == 1)
-					<a href="#" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus"></span> Apuestas</a>
-				@endif
 			@endforeach
 		@else
 			No hay registros disponibles

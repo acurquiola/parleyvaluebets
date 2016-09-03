@@ -17,6 +17,7 @@ class BeisbolController extends Controller
     {
     	return view('beisbol.index');
     }
+
     //Ganador de Serie Mundial
     public function getWorldSerieWinner(){
 		$button  = 0;
@@ -43,7 +44,7 @@ class BeisbolController extends Controller
 		$moreMarkets = 'National League Outright';
 		$moreMarkets = getMarkets($moreMarkets);
 
-    	return view('beisbol.competicion', compact('markets', 'divisionGanadora', 'button', 'nombre', 'moreMarkets'));
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
     }
 
     //Ganador de Liga Americana
@@ -125,5 +126,14 @@ class BeisbolController extends Controller
 		$nombre  = 'Total de Carreras';
 
     	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    }
+
+    public function getMoreMarkets($market){
+		$button  = 1;
+		$nombre  = 'Más Apuestas';
+		$marketExp  = explode('-', $market);
+		$markets = getMarkets($marketExp[0]);
+		
+    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'market'));
     }
 }
