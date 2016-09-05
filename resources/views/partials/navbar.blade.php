@@ -14,7 +14,8 @@
     					<div class="panel-heading">
     						<ul class="nav nav-tabs">
     							<li class="active" ><a href="#tabDeportes" data-toggle="tab">DEPORTES</a></li>
-    							<li><a href="{{ action('XmlReaderController@getXml') }}">REFRESCAR</a></li>
+                                <li><a href="{{ action('XmlReaderController@getXml') }}">REFRESCAR</a></li>
+    							<li><a href="{{ action('XmlReaderController@index') }}">REPORTE</a></li>
     						</ul>
     					</div>
     					<div class="panel-body">
