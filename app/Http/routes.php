@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/',  'Auth\AuthController@getLogin');
 
 
