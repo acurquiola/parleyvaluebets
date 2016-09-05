@@ -38,7 +38,7 @@
 							                    </tr>
 							                </thead>
 											<tbody>
-												@if($logros == [])
+												@if(count($logros) == 0)
 													<tr>
 														<td colspan="7">
 															No hay registros disponibles
