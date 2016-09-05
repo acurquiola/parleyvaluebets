@@ -57,7 +57,7 @@
 																{{ $logro['equipo1'] }}
 															</td>
 															<td class="text-center" style="width: 100px">
-																{{ $logro['moneyLine1'] }}
+																{{ ($logro['moneyLine1'] == 0)?'':$logro['moneyLine1'] }}
 															</td>
 															<td class="text-center"  style="width: 100px">
 															</td>
@@ -78,7 +78,7 @@
 																{{ $logro['equipo2'] }}
 															</td>
 															<td class="text-center" style="width: 100px">
-																{{ $logro['moneyLine2'] }}
+																{{ ($logro['moneyLine2'] == 0)?'':$logro['moneyLine2'] }}
 															</td>
 															<td class="text-center"  style="width: 100px">
 															</td>
