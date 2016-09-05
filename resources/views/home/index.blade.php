@@ -38,53 +38,61 @@
 							                    </tr>
 							                </thead>
 											<tbody>
-												@foreach($logros as $index => $logro)
-													<tr data-status="{{ $logro['deporte'] }}">
-														<td class="text-center" rowspan="2" style="width: 100px" >
-															{{ $logro['fecha'] }}
-														</td>
-														<td class="text-center" rowspan="2" style="width: 100px">
-															{{ $logro['hora'] }}
-														</td>
-														<td class="text-left"  style="width: 200px">
-															{{ $logro['equipo1'] }}
-														</td>
-														<td class="text-center" style="width: 100px">
-															{{ $logro['moneyLine1'] }}
-														</td>
-														<td class="text-center"  style="width: 100px">
-														</td>
-														<td class="text-center"  style="width: 100px">
-														</td>
-														<td class="text-center"  style="width: 100px">
-															{{ ($logro['totalCarreras'] == 0)?'':'o'.$logro['totalCarreras'] }}
-														</td>
-														<td class="text-center"  style="width: 100px">
-															{{ ($logro['totalCarrerasCuotaO'] == 0)?'':$logro['totalCarrerasCuotaO'] }}
-														</td>
-														<td rowspan="2">
-															<a href="{{ action('DeportesController@getMoreMarkets',[$logro['nombre']]) }}" class="pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> APUESTAS</a>
+												@if($logros == [])
+													<tr>
+														<td colspan="7">
+															No hay registros disponibles
 														</td>
 													</tr>
-													<tr data-status="{{ $logro['deporte'] }}">
-														<td class="text-left" style="width: 200px">
-															{{ $logro['equipo2'] }}
-														</td>
-														<td class="text-center" style="width: 100px">
-															{{ $logro['moneyLine2'] }}
-														</td>
-														<td class="text-center"  style="width: 100px">
-														</td>
-														<td class="text-center"  style="width: 100px">
-														</td>
-														<td class="text-center"  style="width: 100px">
-															{{ ($logro['totalCarreras'] == 0)?'':'u'.$logro['totalCarreras'] }}
-														</td>
-														<td class="text-center"  style="width: 100px">
-															{{ ($logro['totalCarrerasCuotaU'] == 0)?'':$logro['totalCarrerasCuotaU'] }}
-														</td>
-													</tr>
-												@endforeach
+												@else
+													@foreach($logros as $index => $logro)
+														<tr data-status="{{ $logro['deporte'] }}">
+															<td class="text-center" rowspan="2" style="width: 100px" >
+																{{ $logro['fecha'] }}
+															</td>
+															<td class="text-center" rowspan="2" style="width: 100px">
+																{{ $logro['hora'] }}
+															</td>
+															<td class="text-left"  style="width: 200px">
+																{{ $logro['equipo1'] }}
+															</td>
+															<td class="text-center" style="width: 100px">
+																{{ $logro['moneyLine1'] }}
+															</td>
+															<td class="text-center"  style="width: 100px">
+															</td>
+															<td class="text-center"  style="width: 100px">
+															</td>
+															<td class="text-center"  style="width: 100px">
+																{{ ($logro['totalCarreras'] == 0)?'':'o'.$logro['totalCarreras'] }}
+															</td>
+															<td class="text-center"  style="width: 100px">
+																{{ ($logro['totalCarrerasCuotaO'] == 0)?'':$logro['totalCarrerasCuotaO'] }}
+															</td>
+															<td rowspan="2">
+																<a href="{{ action('DeportesController@getMoreMarkets',[$logro['nombre']]) }}" class="pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> APUESTAS</a>
+															</td>
+														</tr>
+														<tr data-status="{{ $logro['deporte'] }}">
+															<td class="text-left" style="width: 200px">
+																{{ $logro['equipo2'] }}
+															</td>
+															<td class="text-center" style="width: 100px">
+																{{ $logro['moneyLine2'] }}
+															</td>
+															<td class="text-center"  style="width: 100px">
+															</td>
+															<td class="text-center"  style="width: 100px">
+															</td>
+															<td class="text-center"  style="width: 100px">
+																{{ ($logro['totalCarreras'] == 0)?'':'u'.$logro['totalCarreras'] }}
+															</td>
+															<td class="text-center"  style="width: 100px">
+																{{ ($logro['totalCarrerasCuotaU'] == 0)?'':$logro['totalCarrerasCuotaU'] }}
+															</td>
+														</tr>
+													@endforeach
+												@endif
 											</tbody>
 										</table>
 									</div>
