@@ -16,6 +16,7 @@ class DeportesController extends Controller
 		$marketsTR = getMarkets('- Total Runs', $symbol);
 		$markets = $marketsML->merge($marketsTR);
 		$nombre  = 'Apuestas';
+
 		foreach ($markets as $index => $market) {
 			$logros[$index]  = ['deporte'            => '',
 								'liga'               => '',
@@ -71,6 +72,7 @@ class DeportesController extends Controller
 			}
 
 		}		
+		dd($logros);
 
     	return view('home.index', compact('markets', 'logros'));
     }
