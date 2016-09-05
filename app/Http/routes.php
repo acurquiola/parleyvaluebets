@@ -14,7 +14,6 @@
 
 Route::get('/',  'DeportesController@getLogros');
 
-
 Route::group(['prefix' => 'Values/'], function () {
     Route::get('leerXML', 'XmlReaderController@getXml');
 	Route::resource('xml', 'XmlReaderController');
