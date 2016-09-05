@@ -9,78 +9,83 @@ use App\Http\Requests;
 class DeportesController extends Controller
 {
     //Listado de Juegos
-    public function getLogros(){
+	public function getLogros(){
 		$name    = '%';
 		$symbol  = '=';
 		$marketsML = getMarkets('- Money Line', $symbol);
 		$marketsTR = getMarkets('- Total Runs', $symbol);
-		$markets = $marketsML->merge($marketsTR);
+	//	$markets = $marketsML->merge($marketsTR);
 		$nombre  = 'Apuestas';
-		foreach ($markets as $index => $market) {
-			$logros[$index]  = ['deporte'            => '',
-								'liga'               => '',
-								'fecha'              => '',
-								'hora'               => '',
-								'equipo1'            => '',
-								'equipo2'            => '',
-								'moneyLine1'         => 0,
-								'moneyLine2'         => 0,
-								'handicap1'          => 0,
-								'handicap2'          => 0,
-								'handicapCuota1'     => 0,
-								'handicapCuota2'     => 0,
-								'totalCarreras'      => 0,
-								'totalCarrerasCuotaO' => 0,
-								'totalCarrerasCuotaU' => 0,
-								'nombre'             => ''
-							   ];
 
-			$juego = preg_split( "/ (@|-|v|vs) /", $market->name);
+		foreach ($marketsML as $index => $mL) {
 
-			$logros[$index]['deporte'] = $market->types->clases->name;
-			$logros[$index]['liga']    = $market->types->name;
-			$logros[$index]['fecha']   = $market->betTillDate;
-			$logros[$index]['hora']    = $market->betTillTime;
-			$logros[$index]['equipo1'] = $juego[0];
-			$logros[$index]['equipo2'] = $juego[1];
-			$logros[$index]['nombre']  =  $market->name;
+				$logros[$index]  = ['deporte'             => '',
+									'liga'                => '',
+									'fecha'               => '',
+									'hora'                => '',
+									'equipo1'             => '',
+									'equipo2'             => '',
+									'moneyLine1'          => 0,
+									'moneyLine2'          => 0,
+									'handicap1'           => 0,
+									'handicap2'           => 0,
+									'handicapCuota1'      => 0,
+									'handicapCuota2'      => 0,
+									'totalCarreras'       => 0,
+									'totalCarrerasCuotaO' => 0,
+									'totalCarrerasCuotaU' => 0,
+									'nombre'              => ''
+									];
+			foreach ($marketsTR as $index => $tR) {
 
-			if($juego[2] == 'Money Line'){
-				foreach ($market->participants as $participant) {
-					if($logros[$index]['equipo1'] == $participant->name){
-						$logros[$index]['moneyLine1'] = $participant->oddsDecimal;
-					}elseif($logros[$index]['equipo2'] == $participant->name){
-						$logros[$index]['moneyLine2'] = $participant->oddsDecimal;
+				$juegoTr = preg_split( "/ (@|-|v|vs) /", $tR->name);
+				$juegoMl = preg_split( "/ (@|-|v|vs) /", $mL->name);
+
+				if($juegoTr[0] == $juegoMl[0] && $juegoTr[1] == $juegoMl[1]){
+
+					$logros[$index]['deporte'] = $mL->types->clases->name;
+					$logros[$index]['liga']    = $mL->types->name;
+					$logros[$index]['fecha']   = $mL->betTillDate;
+					$logros[$index]['hora']    = $mL->betTillTime;
+					$logros[$index]['equipo1'] = $juegoMl[0];
+					$logros[$index]['equipo2'] = $juegoMl[1];
+					$logros[$index]['nombre']  = $mL->name;
+
+
+					foreach ($mL->participants as $participantML) {
+						if($logros[$index]['equipo1'] == $participantML->name){
+							$logros[$index]['moneyLine1'] = $participantML->oddsDecimal;
+						}elseif($logros[$index]['equipo2'] == $participantML->name){
+							$logros[$index]['moneyLine2'] = $participantML->oddsDecimal;
+						}
 					}
+
+					foreach ($tR->participants as $participantTR) {
+						if($logros[$index]['equipo1'] == $juegoTr[0]){
+							$logros[$index]['totalCarreras'] = $participantTR->handicap;
+						}elseif($logros[$index]['equipo2'] == $juegoTr[1]){
+							$logros[$index]['totalCarreras'] = $participantTR->handicap;
+						}
+						if($participantTR->name == 'Under'){
+							$logros[$index]['totalCarrerasCuotaU'] = $participantTR->oddsDecimal;
+						}elseif($participantTR->name == 'Over'){
+							$logros[$index]['totalCarrerasCuotaO'] = $participantTR->oddsDecimal;
+						}
+					}
+
 				}
+
 			}
+		}	
+		return view('home.index', compact('markets', 'logros'));
+	}
 
-			if($juego[2] == 'Total Runs'){
-				foreach ($market->participants as $participant) {
-					if($logros[$index]['equipo1'] == $juego[0]){
-						$logros[$index]['totalCarreras'] = $participant->handicap;
-					}elseif($logros[$index]['equipo2'] == $juego[1]){
-						$logros[$index]['totalCarreras'] = $participant->handicap;
-					}
-					if($participant->name == 'Under'){
-						$logros[$index]['totalCarrerasCuotaU'] = $participant->oddsDecimal;
-					}elseif($participant->name == 'Over'){
-						$logros[$index]['totalCarrerasCuotaO'] = $participant->oddsDecimal;
-					}
-				}
-			}
-
-		}		
-
-    	return view('home.index', compact('markets', 'logros'));
-    }
-
-    public function getMoreMarkets($market){
+	public function getMoreMarkets($market){
 		$nombre    = 'Más Apuestas';
 		$symbol    = '>';
 		$marketExp = explode('-', $market);
 		$markets   = getMarkets($marketExp[0], $symbol);
 		
-    	return view('home.moreMarkets', compact('markets', 'nombre', 'market'));
-    }
+		return view('home.moreMarkets', compact('markets', 'nombre', 'market'));
+	}
 }
