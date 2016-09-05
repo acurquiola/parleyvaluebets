@@ -35,9 +35,9 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							@if($button == 1 && $nombre != 'Más Apuestas')
+							@if($nombre != 'Más Apuestas')
 								<td colspan="4">
-									<a href="{{ action('BeisbolController@getMoreMarkets',[$market->name]) }}" class="btn btn-primary pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> Apuestas</a>
+									<a href="{{ action('BeisbolController@getMoreMarkets',[$market->name]) }}" class="btn btn-primary pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> APUESTAS</a>
 								</td>
 							@endif	
 						</tr>

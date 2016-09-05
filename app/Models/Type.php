@@ -10,7 +10,12 @@ class Type extends Model
 	
     public function markets()
     {
-        return $this->hasMany('App\Models\Market');
+        return $this->hasMany('App\Models\Market', 'type_id', 'id');
+    }
+    
+    public function clases()
+    {
+        return $this->belongsTo('App\Models\Clase', 'clase_id');
     }
 
 }

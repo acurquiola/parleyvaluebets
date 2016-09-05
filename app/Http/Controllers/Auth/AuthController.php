@@ -63,7 +63,11 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('home.index');
+        $name    = '%';
+        $symbol = '=';
+        $markets = getMarkets($name, $symbol);
+        $nombre  = 'Apuestas';
+        return view('home.index', compact('markets', 'nombre'));
     }
 
 

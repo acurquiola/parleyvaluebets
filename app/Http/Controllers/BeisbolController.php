@@ -20,120 +20,133 @@ class BeisbolController extends Controller
 
     //Ganador de Serie Mundial
     public function getWorldSerieWinner(){
-		$button  = 0;
 		$name    = '- World Series Winner';
-		$markets = getMarkets($name);
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Ganador de Serie Mundial';
 		
-		// Todas las apuestas
-		$moreMarkets = 'World Series Winner';
-		$moreMarkets = getMarkets($moreMarkets);
-		
 
-    	return view('beisbol.competicion', compact('markets', 'moreMarkets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Ganador de Liga Nacional
     public function getNationalLeagueWinner(){
-		$button      = 0;
 		$name        = '- National League';
-		$markets     = getMarkets($name);
+		$symbol = '>';
+		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'Ganador de Liga Nacional';
-		
-		// Todas las apuestas
-		$moreMarkets = 'National League Outright';
-		$moreMarkets = getMarkets($moreMarkets);
 
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Ganador de Liga Americana
     public function getAmericanLeagueWinner(){
-		$button      = 0;
 		$name        = '- American League';
-		$markets     = getMarkets($name);
+		$symbol = '>';
+		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'Ganador de Liga Americana';
-		
-		// Todas las apuestas
-		$moreMarkets = 'American League Outright';
-		$moreMarkets = getMarkets($moreMarkets);
 
-
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Ganador de División
     public function getDivisionWinner(){
-		$button  = 1;
 		$name    = '- Division Winner';
-		$markets = getMarkets($name);
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Ganador de División';
 
-
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Liga Ganadora
     public function getWinningLeague(){
-		$button      = 0;
 		$name        = '- Winning League';
-		$markets     = getMarkets($name);
+		$symbol = '>';
+		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'Liga Ganadora';
-		
-		// Todas las apuestas
-		$moreMarkets = 'World Series Winner';
-		$moreMarkets = getMarkets($moreMarkets);
-		
-
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'moreMarkets'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //División Ganadora
     public function getWinningDivision(){
-		$button      = 1;
 		$name        = '- Winning Division';
-		$markets     = getMarkets($name);
+		$symbol = '>';
+		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'División Ganadora';
 
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Total Carreras en 1er Inning
     public function getFirstInningTotalRun(){
-		$button  = 1;
 		$name    = '- 1st Innings Total Runs';
-		$markets = getMarkets($name);
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Total de Carreras en 1er Inning';
 
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
+    }
+
+    //Total Apuestas en 1er Inning
+    public function getFirstInningBetting(){
+		$name    = '- 1st Innings Betting';
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
+		$nombre  = 'Apuestas en 1er Inning';
+
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Ganador del Partido
     public function getMoneyLine(){
-		$button  = 1;
 		$name    = ' Money Line';
-		$markets = getMarkets($name);
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Ganador del Partido';
 
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     //Total de carreras
     public function getTotalRuns(){
-		$button  = 1;
 		$name    = '- Total Runs';
-		$markets = getMarkets($name);
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Total de Carreras';
 
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
+    }
+
+    //Primer jugador en dar HR
+    public function getFirstPlayerHitHR(){
+		$name    = '- First Player To Hit A Home Run';
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
+		$nombre  = 'Primer Jugador que conseguirá Home Run';
+
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
+    }
+
+
+    //Jugador en dar HR
+    public function getPlayerHitHR(){
+		$name    = '- Player To Hit A Home Run';
+		$symbol = '>';
+		$markets = getMarkets($name, $symbol);
+		$nombre  = 'Jugador que conseguirá Home Run';
+
+    	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
 
     public function getMoreMarkets($market){
-		$button  = 1;
 		$nombre  = 'Más Apuestas';
+		$symbol = '>';
 		$marketExp  = explode('-', $market);
-		$markets = getMarkets($marketExp[0]);
+		$markets = getMarkets($marketExp[0], $symbol);
 		
-    	return view('beisbol.competicion', compact('markets', 'button', 'nombre', 'market'));
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'market'));
     }
+
+
 }

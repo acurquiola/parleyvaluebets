@@ -15,7 +15,7 @@ class Market extends Model
     
     public function types()
     {
-        return $this->belongsTo('App\Models\Type');
+        return $this->belongsTo('App\Models\Type', 'type_id');
     }
     
 }

@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/',  'Auth\AuthController@getLogin');
+Route::get('/',  'DeportesController@getLogros');
 
 
 Route::group(['prefix' => 'Values/'], function () {
@@ -20,10 +20,13 @@ Route::group(['prefix' => 'Values/'], function () {
 	Route::resource('xml', 'XmlReaderController');
 });
 Route::group(['prefix' => 'deportes/'], function () {
+Route::get('beisbol/primerJugadorEnConseguirHR', 'BeisbolController@getFirstPlayerHitHR');
+Route::get('beisbol/jugadorEnConseguirHR', 'BeisbolController@getPlayerHitHR');
 Route::get('beisbol/{market}/masApuestas', 'BeisbolController@getMoreMarkets');
 Route::get('beisbol/totalCarreras', 'BeisbolController@getTotalRuns');
 Route::get('beisbol/ganadorPartido', 'BeisbolController@getMoneyLine');
 Route::get('beisbol/ligaGanadora', 'BeisbolController@getWinningLeague');
+Route::get('beisbol/apuestasEnPrimerInning', 'BeisbolController@getFirstInningBetting');
 Route::get('beisbol/totalCarrerasEnPrimerInning', 'BeisbolController@getFirstInningTotalRun');
 Route::get('beisbol/divisionGanadora', 'BeisbolController@getWinningDivision');
 Route::get('beisbol/ganadorLigaNacional', 'BeisbolController@getNationalLeagueWinner');
@@ -31,6 +34,9 @@ Route::get('beisbol/ganadorLigaAmericana', 'BeisbolController@getAmericanLeagueW
 Route::get('beisbol/ganadorSerieMundial', 'BeisbolController@getWorldSerieWinner');
 Route::get('beisbol/ganadorDivision', 'BeisbolController@getDivisionWinner');
 Route::resource('beisbol', 'BeisbolController');
+Route::get('todos/logros', 'DeportesController@getLogros');
+Route::get('todos/{market}/masApuestas', 'DeportesController@getMoreMarkets');
+Route::resource('todos', 'DeportesController');
 });
 
 

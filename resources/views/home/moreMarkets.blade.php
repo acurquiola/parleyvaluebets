@@ -8,7 +8,7 @@
 			<br>
 
 			<ol class="breadcrumb">
-				<li><a href="{{ URL::to('deportes/beisbol') }}">Béisbol</a></li>
+				<li><a href="{{ URL::to('/') }}">Página Principal</a></li>
 				@if($nombre != 'Más Apuestas')
 					<li><a class="active"><strong>{{ $nombre }}</strong></a></li>
 				@else

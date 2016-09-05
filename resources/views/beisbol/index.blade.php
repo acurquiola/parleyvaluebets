@@ -38,12 +38,13 @@
 		                                            <ul class="nav navbar-nav col-sm-3" >
 		                                                <li class=" col-sm-12"><a href="#">Hándicap de Carreras</a></li>
 		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getTotalRuns') }}">Total de Carreras</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Primer Jugador en dar Home Run</a></li>
-		                                                <li class=" col-sm-12"><a href="#">Jugador que conseguirá un Home Run</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getFirstPlayerHitHR') }}">Primer Jugador en conseguir un Home Run</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getPlayerHitHR') }}">Jugador que conseguirá un Home Run</a></li>
 		                                            </ul>
 		                                            <ul class="nav navbar-nav col-sm-3" >
-		                                                <li class=" col-sm-12"><a href="#">Apuestas en la 1era entrada</a></li>
+		                                                <li class=" col-sm-12"><a href="#"></a></li>
 		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getFirstInningTotalRun') }}">Total Carreras en la 1era entrada</a></li>
+		                                                <li class=" col-sm-12" style="text-decoration: underline;"><a href="{{ action('BeisbolController@getFirstInningBetting') }}">Apuestas en la 1era entrada</a></li>
 		                                            </ul>
 		                                        </li>
 		                                    </ul>
