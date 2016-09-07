@@ -1,10 +1,10 @@
 <?php
 
 function getMarkets($name, $symbol)
-{
-    $today   = Carbon\Carbon::now();
-	$today->timezone     = 'Europe/Madrid';
-	$MLB = \App\Models\Type::where('name', 'MLB')->first()->id;
+	{
+	$today           = Carbon\Carbon::now();
+	$today->timezone = 'Europe/Madrid';
+	$MLB             = \App\Models\Type::where('name', 'MLB')->first()->id;
 	$markets = \App\Models\Market::with(['participants' => function($query){
 										$query->orderBy('participants.oddsDecimal', 'ASC');
 							}])->where(function ($query) use ($today, $symbol, $name, $MLB){

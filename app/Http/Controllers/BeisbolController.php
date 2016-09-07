@@ -48,7 +48,19 @@ class BeisbolController extends Controller
 		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'Ganador de Liga Nacional';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Ganador de Liga Americana
@@ -58,7 +70,19 @@ class BeisbolController extends Controller
 		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'Ganador de Liga Americana';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Ganador de División
@@ -68,7 +92,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Ganador de División';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Liga Ganadora
@@ -87,7 +123,19 @@ class BeisbolController extends Controller
 		$markets     = getMarkets($name, $symbol);
 		$nombre      = 'División Ganadora';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Total Carreras en 1er Inning
@@ -97,7 +145,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Total de Carreras en 1er Inning';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Total Apuestas en 1er Inning
@@ -107,7 +167,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Apuestas en 1er Inning';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Ganador del Partido
@@ -117,7 +189,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Ganador del Partido';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Total de carreras
@@ -127,7 +211,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Total de Carreras';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Primer jugador en dar HR
@@ -137,7 +233,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Primer Jugador que conseguirá Home Run';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
 
@@ -148,7 +256,19 @@ class BeisbolController extends Controller
 		$markets = getMarkets($name, $symbol);
 		$nombre  = 'Jugador que conseguirá Home Run';
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+		
+
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     public function getMoreMarkets($market){
