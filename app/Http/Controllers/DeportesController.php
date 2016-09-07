@@ -111,8 +111,20 @@ class DeportesController extends Controller
 		$nombre    = 'Más Apuestas';
 		$symbol    = '>';
 		$marketExp = explode('-', $market);
-		$markets   = getMarkets($marketExp[0], $symbol);
+		$markets   = getMarkets($marketExp[0]);
+        $participantHist = [];
 
-		return view('home.moreMarkets', compact('markets', 'nombre', 'market'));
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+      
+
+        return view('beisbol.competicion', compact('markets', 'market', 'nombre', 'participantHist'));
 	}
 }

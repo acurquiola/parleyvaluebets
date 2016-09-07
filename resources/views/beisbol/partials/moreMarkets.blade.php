@@ -23,17 +23,30 @@
 							</td>
 						</tr>
 						@foreach($market->participants as $participant)
-						<tr>
-							<td  class="text-center" style="width: 20%" >
-								{{ $participant->oddsDecimal }}
-							</td>
-							<td  class="text-center" style="width: 40%" >
-								{{ $participant->name }}
-							</td>
-						</tr>
+							@if($participant->historico->count() > 0)
+								@foreach($participantHist as $hist)
+									@if($hist->participant_id == $participant->id)
+										<tr>
+											<td  class="text-center" style="width: 20%" >
+												{{ $hist->oddsDecimal }}
+											</td>
+											<td  class="text-center" style="width: 40%" >
+												{{ $hist->name }}
+											</td>
+										</tr>
+									@endif
+								@endforeach
+							@else
+								<tr>
+									<td  class="text-center" style="width: 20%" >
+										{{ $participant->oddsDecimal }}
+									</td>
+									<td  class="text-center" style="width: 40%" >
+										{{ $participant->name }} 
+									</td>
+								</tr>
+							@endif
 						@endforeach
-
-
 					</tbody>
 				</table>
 			@endforeach

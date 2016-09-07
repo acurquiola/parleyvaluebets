@@ -12,7 +12,7 @@
 				@if($nombre != 'Más Apuestas')
 					<li><a class="active"><strong>{{ $nombre }}</strong></a></li>
 				@else
-					<li><a href="{{ redirect()->back()->getTargetUrl() }}">{{ $market }}</a></li>
+					<li><a href="{{ redirect()->back()->getTargetUrl() }}">{{ $market->name }}</a></li>
 					<li><a class="active"><strong>{{ $nombre }}</strong></a></li>
 				@endif
 			</ol>

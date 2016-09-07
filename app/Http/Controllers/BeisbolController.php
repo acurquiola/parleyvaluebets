@@ -46,6 +46,8 @@ class BeisbolController extends Controller
 		$name        = '- National League';
 		$markets     = getMarkets($name);
 		$nombre      = 'Ganador de Liga Nacional';
+        $participantHist = [];
+
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -67,6 +69,8 @@ class BeisbolController extends Controller
 		$name        = '- American League';
 		$markets     = getMarkets($name);
 		$nombre      = 'Ganador de Liga Americana';
+        $participantHist = [];
+
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -88,6 +92,8 @@ class BeisbolController extends Controller
 		$name    = '- Division Winner';
 		$markets = getMarkets($name);
 		$nombre  = 'Ganador de División';
+        $participantHist = [];
+
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -109,7 +115,21 @@ class BeisbolController extends Controller
 		$name        = '- Winning League';
 		$markets     = getMarkets($name);
 		$nombre      = 'Liga Ganadora';
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+        $participantHist = [];
+
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
+        
+
+        return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //División Ganadora
@@ -117,6 +137,7 @@ class BeisbolController extends Controller
 		$name        = '- Winning Division';
 		$markets     = getMarkets($name);
 		$nombre      = 'División Ganadora';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -138,6 +159,7 @@ class BeisbolController extends Controller
 		$name    = '- 1st Innings Total Runs';
 		$markets = getMarkets($name);
 		$nombre  = 'Total de Carreras en 1er Inning';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -159,6 +181,7 @@ class BeisbolController extends Controller
 		$name    = '- 1st Innings Betting';
 		$markets = getMarkets($name);
 		$nombre  = 'Apuestas en 1er Inning';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -180,6 +203,7 @@ class BeisbolController extends Controller
 		$name    = 'Money Line';
 		$markets = getMarkets($name);
 		$nombre  = 'Ganador del Partido';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -201,6 +225,7 @@ class BeisbolController extends Controller
 		$name    = '- Total Runs';
 		$markets = getMarkets($name);
 		$nombre  = 'Total de Carreras';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -222,6 +247,7 @@ class BeisbolController extends Controller
 		$name    = '- First Player To Hit A Home Run';
 		$markets = getMarkets($name);
 		$nombre  = 'Primer Jugador que conseguirá Home Run';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -244,6 +270,7 @@ class BeisbolController extends Controller
 		$name    = '- Player To Hit A Home Run';
 		$markets = getMarkets($name);
 		$nombre  = 'Jugador que conseguirá Home Run';
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
@@ -263,9 +290,20 @@ class BeisbolController extends Controller
     public function getMoreMarkets($market){
 		$nombre  = 'Más Apuestas';
 		$marketExp  = explode('-', $market);
-		$markets = getMarkets($marketExp[0], $symbol);
-		
-    	return view('beisbol.competicion', compact('markets', 'nombre', 'market'));
+		$markets = getMarkets($marketExp[0]);
+        $participantHist = [];
+
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+      
+        return view('beisbol.competicion', compact('markets', 'market', 'nombre', 'participantHist'));
     }
 
 
