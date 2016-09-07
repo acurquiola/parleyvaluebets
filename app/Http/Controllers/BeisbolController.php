@@ -22,7 +22,7 @@ class BeisbolController extends Controller
     public function getWorldSerieWinner(){
         $name            = '- World Series Winner';
         $symbol          = '>';
-        $markets         = getMarkets($name, $symbol);
+        $markets         = getMarkets($name);
         $nombre          = 'Ganador de Serie Mundial';
         $participantHist = [];
 
@@ -44,8 +44,7 @@ class BeisbolController extends Controller
     //Ganador de Liga Nacional
     public function getNationalLeagueWinner(){
 		$name        = '- National League';
-		$symbol = '>';
-		$markets     = getMarkets($name, $symbol);
+		$markets     = getMarkets($name);
 		$nombre      = 'Ganador de Liga Nacional';
 
         foreach ($markets as $market) {
@@ -66,8 +65,7 @@ class BeisbolController extends Controller
     //Ganador de Liga Americana
     public function getAmericanLeagueWinner(){
 		$name        = '- American League';
-		$symbol = '>';
-		$markets     = getMarkets($name, $symbol);
+		$markets     = getMarkets($name);
 		$nombre      = 'Ganador de Liga Americana';
 
         foreach ($markets as $market) {
@@ -88,8 +86,7 @@ class BeisbolController extends Controller
     //Ganador de División
     public function getDivisionWinner(){
 		$name    = '- Division Winner';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Ganador de División';
 
         foreach ($markets as $market) {
@@ -110,8 +107,7 @@ class BeisbolController extends Controller
     //Liga Ganadora
     public function getWinningLeague(){
 		$name        = '- Winning League';
-		$symbol = '>';
-		$markets     = getMarkets($name, $symbol);
+		$markets     = getMarkets($name);
 		$nombre      = 'Liga Ganadora';
     	return view('beisbol.competicion', compact('markets', 'nombre'));
     }
@@ -119,8 +115,7 @@ class BeisbolController extends Controller
     //División Ganadora
     public function getWinningDivision(){
 		$name        = '- Winning Division';
-		$symbol = '>';
-		$markets     = getMarkets($name, $symbol);
+		$markets     = getMarkets($name);
 		$nombre      = 'División Ganadora';
 
         foreach ($markets as $market) {
@@ -141,8 +136,7 @@ class BeisbolController extends Controller
     //Total Carreras en 1er Inning
     public function getFirstInningTotalRun(){
 		$name    = '- 1st Innings Total Runs';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Total de Carreras en 1er Inning';
 
         foreach ($markets as $market) {
@@ -163,8 +157,7 @@ class BeisbolController extends Controller
     //Total Apuestas en 1er Inning
     public function getFirstInningBetting(){
 		$name    = '- 1st Innings Betting';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Apuestas en 1er Inning';
 
         foreach ($markets as $market) {
@@ -184,9 +177,8 @@ class BeisbolController extends Controller
 
     //Ganador del Partido
     public function getMoneyLine(){
-		$name    = ' Money Line';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$name    = 'Money Line';
+		$markets = getMarkets($name);
 		$nombre  = 'Ganador del Partido';
 
         foreach ($markets as $market) {
@@ -207,8 +199,7 @@ class BeisbolController extends Controller
     //Total de carreras
     public function getTotalRuns(){
 		$name    = '- Total Runs';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Total de Carreras';
 
         foreach ($markets as $market) {
@@ -229,8 +220,7 @@ class BeisbolController extends Controller
     //Primer jugador en dar HR
     public function getFirstPlayerHitHR(){
 		$name    = '- First Player To Hit A Home Run';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Primer Jugador que conseguirá Home Run';
 
         foreach ($markets as $market) {
@@ -252,8 +242,7 @@ class BeisbolController extends Controller
     //Jugador en dar HR
     public function getPlayerHitHR(){
 		$name    = '- Player To Hit A Home Run';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
+		$markets = getMarkets($name);
 		$nombre  = 'Jugador que conseguirá Home Run';
 
         foreach ($markets as $market) {
@@ -273,7 +262,6 @@ class BeisbolController extends Controller
 
     public function getMoreMarkets($market){
 		$nombre  = 'Más Apuestas';
-		$symbol = '>';
 		$marketExp  = explode('-', $market);
 		$markets = getMarkets($marketExp[0], $symbol);
 		

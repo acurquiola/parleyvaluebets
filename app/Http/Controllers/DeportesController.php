@@ -10,11 +10,10 @@ class DeportesController extends Controller
 {
     //Listado de Juegos
 	public function getLogros(){
-		$symbol    = '=';
+		$symbol    = '>';
 		$logros    = [];
-		$marketsML = getMarkets('- Money Line', $symbol);
-		$marketsTR = getMarkets('- Total Runs', $symbol);
-
+		$marketsML = getMarkets('- Money Line');
+		$marketsTR = getMarkets('- Total Runs');
 		$nombre    = 'Apuestas';
 
 		foreach ($marketsML as $index => $mL) {
@@ -42,7 +41,7 @@ class DeportesController extends Controller
 				$juegoMl = preg_split( "/ (@|-|v|vs) /", $mL->name);
 
 
-				if(($juegoTr[0] == $juegoMl[0] && $juegoTr[1] == $juegoMl[1]) || $juegoTr[0] == $juegoMl[1] && $juegoTr[1] == $juegoMl[0]){
+				if($juegoTr[0] == $juegoMl[0] && $juegoTr[1] == $juegoMl[1]){
 
 					$logros[$index]['deporte'] = $mL->types->clases->name;
 					$logros[$index]['liga']    = $mL->types->name;
