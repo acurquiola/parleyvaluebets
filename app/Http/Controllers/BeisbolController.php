@@ -20,13 +20,25 @@ class BeisbolController extends Controller
 
     //Ganador de Serie Mundial
     public function getWorldSerieWinner(){
-		$name    = '- World Series Winner';
-		$symbol = '>';
-		$markets = getMarkets($name, $symbol);
-		$nombre  = 'Ganador de Serie Mundial';
+        $name            = '- World Series Winner';
+        $symbol          = '>';
+        $markets         = getMarkets($name, $symbol);
+        $nombre          = 'Ganador de Serie Mundial';
+        $participantHist = [];
+
+        foreach ($markets as $market) {
+            foreach ($market->participants as $participant) {
+                if($participant->historico->count() > 0){
+                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                                                                ->orderBy('id', 'DESC')
+                                                                ->first();
+                }
+            }
+        }
+
 		
 
-    	return view('beisbol.competicion', compact('markets', 'nombre'));
+    	return view('beisbol.competicion', compact('markets', 'nombre', 'participantHist'));
     }
 
     //Ganador de Liga Nacional
