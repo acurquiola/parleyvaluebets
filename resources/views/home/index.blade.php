@@ -40,7 +40,7 @@
 											<tbody>
 												@if(count($logros) == 0)
 													<tr>
-														<td colspan="7">
+														<td colspan="9" class="text-center">
 															No hay registros disponibles
 														</td>
 													</tr>
