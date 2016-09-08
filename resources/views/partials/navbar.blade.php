@@ -15,7 +15,15 @@
     						<ul class="nav nav-tabs">
     							<li class="active" ><a href="#tabDeportes" data-toggle="tab">DEPORTES</a></li>
                                 <li><a href="{{ action('XmlReaderController@getXml') }}">REFRESCAR</a></li>
-    							<li><a href="{{ action('XmlReaderController@index') }}">REPORTE</a></li>
+                                <li><a href="{{ action('XmlReaderController@index') }}">REPORTE</a></li>
+                                <li class="dropdown pull-right">
+                                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">Usuario <b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">Perfil</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ URL::to('auth/logout') }}">Cerrar Sesión</a></li>
+                                  </ul>
+                                </li>
     						</ul>
     					</div>
     					<div class="panel-body">

@@ -18,6 +18,8 @@
 		</script>
 		<!-- Bootstrap 3.3.2 JS -->      
 		<script src=" {{ asset('assets/js/bootstrap.js') }}" type="text/javascript"></script>
+		<!-- App Js -->  
+		<script src=" {{ asset('assets/js/app.js') }}" type="text/javascript"></script>
 		<!-- SlimScroll -->
 		<script src=" {{ asset('/assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script> 
 		<!-- FastClick -->
