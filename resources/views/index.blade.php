@@ -17,8 +17,8 @@
 							<input type="password" class="form-control" name="password" placeholder="password" required="" />
 						</div>
 						<div>
-							<a class="reset_pass" href="#">OLVIDÉ MI CONTRASEÑA</a>
                             <button type="submit" class="btn btn-primary"> INGRESA </button>
+							<a class="reset_pass" href="#">OLVIDÉ MI CONTRASEÑA</a>
 						</div>
 						<div style="margin-top: 25px" class="separator">
 						</div>

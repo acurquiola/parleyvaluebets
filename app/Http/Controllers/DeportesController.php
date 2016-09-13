@@ -9,11 +9,7 @@ use App\Http\Requests;
 class DeportesController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
+
     //Listado de Juegos
 	public function index(){
 		$symbol    = '>';

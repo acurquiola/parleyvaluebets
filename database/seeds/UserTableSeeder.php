@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
             'email'       => 'admin@parleyvaluebets.com',
             'password'    => \Hash::make('admin'),
             'tipoUsuario' => 'admin',
-    		
+            'status'      => 1,		
 
     		));
     }

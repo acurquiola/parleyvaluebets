@@ -18,7 +18,8 @@
                                 <li><a href="{{ action('XmlReaderController@index') }}">REPORTE</a></li>
                                 <li class="dropdown pull-right">
                                   <a href="#" class="dropdown-toggle " data-toggle="dropdown">Usuario <b class="caret"></b></a>
-                                  <ul class="dropdown-menu">
+                                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="{{ action('AdministradorController@index') }}">Administrador</a></li>
                                     <li><a href="#">Perfil</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{{ URL::to('auth/logout') }}">Cerrar Sesión</a></li>
