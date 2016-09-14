@@ -24,13 +24,20 @@ class UserRequest extends Request
     public function rules()
     {
         $id=null;
-        $user=$this->route()->getParameter('user');
-        if($user)
-            $id=$user->id;
-        return [
-            'name'     => 'required',
-            'email'    => 'required|unique:users,email,'.$id,
-            'username' => 'required|unique:users,username,'.$id
-        ];
+        $id=$this->route()->getParameter('usuarios');
+        if($id!=null)
+            return [
+                'name'     => 'required',
+                'email'    => 'required|unique:users,email,'.$id,
+                'username' => 'required|unique:users,username,'.$id
+            ];
+        else{
+
+            return [
+                'name'     => 'required',
+                'email'    => 'required|unique:users,email,',
+                'username' => 'required|unique:users,username,'
+            ];
+        }
     }
 }

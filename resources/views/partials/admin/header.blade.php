@@ -17,5 +17,11 @@
 			<!-- jQuery custom content scroller -->
 			<link href="{{ asset('/assets/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet">
 			<!-- Custom Theme Style -->
-			<link href="{{ asset('/assets/css/app/custom.min.css') }}" rel="stylesheet">
+			<link href="{{ asset('/assets/css/app/custom.css') }}" rel="stylesheet">
+		    <!-- Datatables -->
+			<link href="{{ asset('/assets/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+			<link href="{{ asset('/assets/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">
+			<link href="{{ asset('/assets/plugins/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css') }}" rel="stylesheet">
+			<link href="{{ asset('/assets/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}" rel="stylesheet">
+			<link href="{{ asset('/assets/plugins/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}" rel="stylesheet">
 		</head>

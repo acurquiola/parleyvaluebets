@@ -24,6 +24,8 @@
 		<script src=" {{ asset('/assets/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script> 
 		<!-- FastClick -->
 		<script src=" {{ asset('/assets/plugins/fastclick/fastclick.js') }}" type="text/javascript"></script>   
+		<!-- Alertify -->
+		<link href="{{ asset('/assets/plugins/alertifyjs/alertify.js') }}" rel="stylesheet">
 
 		<script type="text/javascript">
 			$(function(){

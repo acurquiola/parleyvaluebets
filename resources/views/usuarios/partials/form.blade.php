@@ -27,8 +27,8 @@
 <div class="ln_solid"></div>
 <div class="form-group">
     <div class="box-footer text-right">
-	<button class="btn btn-default">Cancelar</button>
 	    @if($disabled!="disabled")
+    		<a href="{{ action('UserController@index') }}" type="button" class="btn btn-default">Cancelar</a>
 	        <button class="btn btn-success"> {{$SubmitBtnText}} </button>
 	    @endif
     </div>

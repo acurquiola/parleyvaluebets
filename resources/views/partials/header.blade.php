@@ -20,6 +20,10 @@
 		<!-- Fonts -->
 		<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
+		<!-- Alertify -->
+		<link href="{{ asset('/assets/plugins/alertifyjs/css/alertify.css') }}" rel="stylesheet">
+
 		<!-- App style -->
 		<link href="{{ asset('/assets/css/app/app.css') }}" rel="stylesheet">
+
 	</head>

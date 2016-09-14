@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-    	return view('usuarios.index');
+        $users = User::all();
+    	return view('usuarios.index', compact('users'));
     }
 
     /**
@@ -66,7 +67,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('usuarios.edit', compact('user'));
     }
 
     /**
@@ -76,9 +79,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, UserRequest $request)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->except('password'));
+        return redirect()->action('UserController@index')->with('status', 'Usuario modificado exitósamente');
     }
 
     /**
@@ -89,6 +94,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(User::destroy($id)){
+            return redirect()->action('UserController@index')->with('status', 'Registro eliminado con éxito.');
+        }
     }
 }

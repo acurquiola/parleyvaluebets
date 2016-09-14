@@ -22,9 +22,9 @@
 					</div>
 					<div class="x_content">
 						<br />
-	                    {!! Form::model($user, ["url" => action('UserController@store'), "method" => "POST", 'data-parsley-validate',  'class'=>"form-horizontal form-label-left"]) !!}
+	                    	{!! Form::model($user, ["url" => action('UserController@store'), "method" => "POST", 'data-parsley-validate',  'class'=>"form-horizontal form-label-left"]) !!}
 		                        @include('usuarios.partials.form', ["SubmitBtnText"=>"Registrar", "disabled" =>""])
-	                    {!! Form::close() !!}
+	                   		{!! Form::close() !!}
 					</div>
 				</div>
 			</div>
