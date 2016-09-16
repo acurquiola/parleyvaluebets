@@ -43,7 +43,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::group(['prefix' => 'admin'], function () {
 		Route::resource('/', 'AdministradorController');
+		Route::get('usuarios/confirmacion/{user}', 'UserController@getConfirmation');
 		Route::resource('/usuarios', 'UserController');
+		Route::resource('/historialAcceso', 'AccesoUsuarioController');
 	});
 	
 	Route::group(['prefix' => 'Values/'], function () {

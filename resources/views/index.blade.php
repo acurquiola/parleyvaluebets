@@ -9,6 +9,7 @@
                     @include('partials.errors')
 				    {!! Form::open( ["url" => "auth/login", "method" => "POST", "class"=>"form-horizontal"]) !!}
 					<form>
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<h1>Iniciar Sesión</h1>
 						<div>
 							<input type="text" class="form-control" name="username" placeholder="username" required="" />

@@ -24,6 +24,8 @@
 		<script src=" {{ asset('/assets/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}" type="text/javascript"></script>   
 		<!-- Custom Theme Scripts -->
 		<script src=" {{ asset('/assets/js/custom.min.js') }}" type="text/javascript"></script>   
+		<!-- Alertify -->
+		<script src=" {{ asset('/assets/plugins/alertifyjs/alertify.min.js') }}" type="text/javascript"></script>
 		<!-- Datatables -->
 		<script src=" {{ asset('/assets/plugins/datatables.net/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>  
 		<script src=" {{ asset('/assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>  

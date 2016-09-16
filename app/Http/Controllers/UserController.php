@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use Request;
 use App\Http\Requests;
+
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Mail;
 
 class UserController extends Controller
 {
@@ -43,7 +44,7 @@ class UserController extends Controller
         $user = User::create($request->except('password'));
         $confirm_token = str_random(100);
         $user->confirm_token = $confirm_token;
-        if($user->save()){
+         if($user->save()){
             return redirect()->action('UserController@index')->with('status', 'Usuario creado exitósamente');
         }
     }
@@ -97,5 +98,19 @@ class UserController extends Controller
         if(User::destroy($id)){
             return redirect()->action('UserController@index')->with('status', 'Registro eliminado con éxito.');
         }
+    }
+
+    public function getConfirmation($id){
+
+        $user = User::find($id);   
+        $data['name'] = $user->name;
+        $data['email'] = $user->email;
+        $data['confirm_token'] = $user->confirm_token;
+
+        Mail::send('mails.confirmacion', ['data' => $data ], function($mail) use ($user) {
+            $mail->subject('Validación de correo electrónico');
+            $mail->to($user->email);
+
+        });
     }
 }

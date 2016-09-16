@@ -23,4 +23,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function accesos()
+    {
+        return $this->hasMany('App\Models\AccesoUsuario', 'user_id', 'id');
+    }
 }

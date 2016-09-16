@@ -18,6 +18,8 @@
 			<link href="{{ asset('/assets/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet">
 			<!-- Custom Theme Style -->
 			<link href="{{ asset('/assets/css/app/custom.css') }}" rel="stylesheet">
+			<!-- Alertify -->
+			<link href="{{ asset('/assets/plugins/alertifyjs/css/themes/bootstrap.css') }}" rel="stylesheet">
 		    <!-- Datatables -->
 			<link href="{{ asset('/assets/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
 			<link href="{{ asset('/assets/plugins/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}" rel="stylesheet">

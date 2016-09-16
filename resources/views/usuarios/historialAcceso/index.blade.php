@@ -5,7 +5,7 @@
 	<div class="">
 		<div class="page-title">
 			<div class="title_left">
-				<h3>Gestión de Usuarios</h3>
+				<h3>Historial de acceso</h3>
 			</div>
 		</div>
 
@@ -13,7 +13,7 @@
 			@include('partials.admin.errors')
 			<div class="x_panel">
 				<div class="x_title">
-					<h2>Usuarios Registrados</h2>
+					<h2>Accesos Registrados</h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a href="{{ action('UserController@create') }}"><i class="fa fa-plus" title="Agregar un nuevo registro"></i></a></li>
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
@@ -24,7 +24,7 @@
 				<div class="x_content">
 					<div class="row">
 						<div class="col-sm-12">
-							@include('usuarios.partials.table')
+							@include('usuarios.historialAcceso.partials.table')
 						</div>
 					</div>
 				</div>
@@ -42,17 +42,6 @@
 
 <!-- Datatables -->
 <script>
-
-
-	function ConfirmDelete()
-	{
-   		var x = confirm("¿Realmente desea  eliminar este registro?")
-        if (x) {
-			return true;
-		}else{
-			return false;
-		}
-	}
 
 
 	$(document).ready(function() {

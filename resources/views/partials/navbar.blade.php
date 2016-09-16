@@ -17,7 +17,7 @@
                                 <li><a href="{{ action('XmlReaderController@getXml') }}">REFRESCAR</a></li>
                                 <li><a href="{{ action('XmlReaderController@index') }}">REPORTE</a></li>
                                 <li class="dropdown pull-right">
-                                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">Usuario <b class="caret"></b></a>
+                                  <a href="#" class="dropdown-toggle " data-toggle="dropdown">{{ session('username') }}  <b class="caret"></b></a>
                                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a href="{{ action('AdministradorController@index') }}">Administrador</a></li>
                                     <li><a href="#">Perfil</a></li>

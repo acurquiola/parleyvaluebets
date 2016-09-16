@@ -13,15 +13,10 @@
 		<link href="{{ asset('/assets/css/app/skin-blue-light.css') }}" rel="stylesheet">
 		<link href="{{ asset('/assets/css/app/AdminLTE.css') }}" rel="stylesheet">
 		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-		<!-- Ionicons -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+		<link href="{{ asset('/assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
 		<!-- Fonts -->
 		<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-		<!-- Alertify -->
-		<link href="{{ asset('/assets/plugins/alertifyjs/css/alertify.css') }}" rel="stylesheet">
 
 		<!-- App style -->
 		<link href="{{ asset('/assets/css/app/app.css') }}" rel="stylesheet">

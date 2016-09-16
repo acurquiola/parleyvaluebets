@@ -4,7 +4,7 @@
 			<div class="col-md-3 left_col menu_fixed">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href='{{ URL::to('/') }}' class="site_title"><b>ParleyValue</b>Bets!</a>
+						<a href='{{ URL::to('/admin') }}' class="site_title"><b>ParleyValue</b>Bets!</a>
 
 					</div>
 
@@ -17,7 +17,7 @@
 						</div>
 						<div class="profile_info">
 							<span>Bienvenido,</span>
-							<h2>Admin</h2>
+							<h2>{{ session('username') }} </h2>
 						</div>
 					</div>
 					<!-- /menu profile quick info -->
@@ -30,6 +30,7 @@
 							<h3>General</h3>
 							<ul class="nav side-menu">
 								<li><a href="{{ action('UserController@index') }}"><i class="fa fa-user"></i> Gestión de Usuarios</a></li>
+								<li><a href="{{ action('AccesoUsuarioController@index') }}"><i class="fa fa-list"></i> Historial de Acceso</a></li>
 							</ul>
 						</div>
 
