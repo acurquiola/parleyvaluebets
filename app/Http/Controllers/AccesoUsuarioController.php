@@ -16,7 +16,7 @@ class AccesoUsuarioController extends Controller
      */
     public function index()
     {
-        $historial = AccesoUsuario::all();
+        $historial = AccesoUsuario::orderBy('id', 'DESC')->get();
     	return view('usuarios.historialAcceso.index', compact('historial'));
     }
 
