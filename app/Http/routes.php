@@ -19,6 +19,7 @@ Route::group(['prefix' => 'auth/'], function () {
 });
 
 Route::get('admin/usuarios/confirm/{email}/token/{token}', 'UserController@establecerPassword');
+Route::post('usuarios/establecerPassword', 'UserController@postEstablecerPassword');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/', 'DeportesController@index')->middleware('auth');
@@ -45,7 +46,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['prefix' => 'admin'], function () {
 		Route::resource('/', 'AdministradorController');
 		Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
-		Route::post('usuarios/establecerPassword', 'UserController@postEstablecerPassword');
 		Route::resource('/usuarios', 'UserController');
 		Route::resource('/historialAcceso', 'AccesoUsuarioController');
 	});

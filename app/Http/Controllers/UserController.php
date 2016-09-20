@@ -125,7 +125,7 @@ class UserController extends Controller
 
         });
 
-        return redirect()->action('UserController@index')->with('status', 'Correo electrónico de confirmación de correo enviado exitósamente.');
+        return redirect()->action('UserController@index')->with('status', 'Correo electrónico de confirmación enviado exitósamente.');
     }
 
     public function establecerPassword($email, $confirm_token)
