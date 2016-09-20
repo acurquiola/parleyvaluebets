@@ -2,10 +2,18 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title></title>
 </head>
 <body>
-	<p><strong>Nombre: </strong>{{ $data['name'] }}</p>
-	<p><strong>E-mail: </strong>{{ $data['email'] }}</p>
+
+	<p>¡Hola <strong>{{ $data['name'] }}</strong>! Bienvenido a ParleyValueBets</p>.
+
+	<p>Necesitamos confirmar tu cuenta de correo electrónico para darte acceso a nuestra web.</p>
+
+	<p>Por favor haz clic en el siguiente enlace y completa el registro: 
+		<a href="{{ action('UserController@establecerPassword', ['email' => $data['email'], 'token' => $data['confirm_token']]) }}">Confirmar correo</a>
+	</p>
+
+	<p>¡Gracias!</p>
 </body>
 </html>

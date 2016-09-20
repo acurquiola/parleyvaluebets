@@ -41,13 +41,14 @@ class XmlReaderController extends Controller
     public function getXml()
     {
     	$rutas = ['http://185.81.165.215/baseball/Baseball',
-    	'http://185.81.165.215/baseball/score/correct_score',
-    	'http://185.81.165.215/baseball/higher_lower/higher_lower',
-    	'http://185.81.165.215/baseball/m_result/m_result',
-    	'http://185.81.165.215/baseball/odd_even/odd_even',
-    	'http://185.81.165.215/baseball/win_win/win_win',
-    	'http://185.81.165.215/baseball/f_score/f_score',
-    	'http://185.81.165.215/baseball/ag/ag'];
+            	  'http://185.81.165.215/baseball/score/correct_score',
+            	  'http://185.81.165.215/baseball/higher_lower/higher_lower',
+            	  'http://185.81.165.215/baseball/m_result/m_result',
+            	  'http://185.81.165.215/baseball/odd_even/odd_even',
+            	  'http://185.81.165.215/baseball/win_win/win_win',
+            	  'http://185.81.165.215/baseball/f_score/f_score',
+            	  'http://185.81.165.215/baseball/ag/ag'
+                  ];
 
     	foreach ($rutas as $index => $ruta) {
     		$xml     = XmlParser::load($ruta);
