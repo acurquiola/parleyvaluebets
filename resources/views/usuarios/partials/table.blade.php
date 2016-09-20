@@ -22,7 +22,7 @@
 					<td>{{ ($user->status == 1)?'Confirmado':'No Confirmado' }}</td>
 					<td>						
                         <div class='btn-group  btn-group-xs' role='group' aria-label='...'>
-		                    {!! Form::model($user, ["url" => action('UserController@getConfirmation', $user->id), "method" => "GET"]) !!}
+		                    {!! Form::model($user, ["url" => action('UserController@sendConfirmation', $user->id), "method" => "GET"]) !!}
 								<button class='btn btn-info btn-xs' type="submit"><i class="glyphicon glyphicon-link" title="Reenviar correo de confirmación"></i></button>
 							{!! Form::close() !!}
 							<a href='{{action('UserController@edit', ["id"=>$user->id])}}'  type="button" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit" title="Editar"></i></a>

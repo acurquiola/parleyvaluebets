@@ -103,6 +103,11 @@ return array(
 		    'rule-name'  => 'custom-message',
 		),
 	),
+	'custom' => array(
+		'password_confirm' => array(
+		    'same'  => 'Las contraseñas no coinciden',
+		),
+	),
 
 	/*
 	|--------------------------------------------------------------------------

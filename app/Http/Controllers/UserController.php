@@ -6,6 +6,7 @@ use Request;
 use App\Http\Requests;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\PasswordRequest;
 use App\Models\User;
 use Mail;
 
@@ -44,7 +45,16 @@ class UserController extends Controller
         $user = User::create($request->except('password'));
         $confirm_token = str_random(100);
         $user->confirm_token = $confirm_token;
+        $data['name'] = $user->name;
+        $data['email'] = $user->email;
+        $data['confirm_token'] = $user->confirm_token;
          if($user->save()){
+            Mail::send('mails.confirmacion', ['data' => $data], function($mail) use ($user) {
+                $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
+                $mail->subject('Confirmación de correo electrónico');
+                $mail->to($user->email, $user->name);
+
+            });
             return redirect()->action('UserController@index')->with('status', 'Usuario creado exitósamente');
         }
     }
@@ -100,17 +110,45 @@ class UserController extends Controller
         }
     }
 
-    public function getConfirmation($id){
+    protected function sendConfirmation($id)
+    {
 
         $user = User::find($id);   
         $data['name'] = $user->name;
         $data['email'] = $user->email;
         $data['confirm_token'] = $user->confirm_token;
 
-        Mail::send('mails.confirmacion', ['data' => $data ], function($mail) use ($user) {
-            $mail->subject('Validación de correo electrónico');
-            $mail->to($user->email);
+        Mail::send('mails.confirmacion', ['data' => $data], function($mail) use ($user) {
+            $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
+            $mail->subject('Confirmación de correo electrónico');
+            $mail->to($user->email, $user->name);
 
         });
+
+        return redirect()->action('UserController@index')->with('status', 'Correo electrónico de confirmación de correo enviado exitósamente.');
+    }
+
+    public function establecerPassword($email, $confirm_token)
+    {
+        $user = User::where('email', $email)->where('confirm_token', $confirm_token)->first();
+        if($user){
+            return view('home.password.index', compact('user'));
+        }
+    }
+
+    public function postEstablecerPassword(PasswordRequest $request)
+    {
+        $user = User::where('username', Request::get('username'))
+                    ->where('confirm_token', Request::get('confirm_token'))
+                    ->first();
+        if($user)
+        {
+            $newPassword = Request::get('password');
+            $newToken = str_random(100);
+            $user->update(['password' => \Hash::make($newPassword), 'confirm_token' => $newToken, 'status' => '1']);
+
+            return redirect()->action('Auth\AuthController@getLogin')->with('status', 'Correo confirmado y contraseña establecida, ¡Puede iniciar sesión ahora!');
+        }
+
     }
 }

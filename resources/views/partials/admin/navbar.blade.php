@@ -14,6 +14,7 @@
 						<span class=" fa fa-angle-down"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-usermenu pull-right">
+						<li><a href="{{ URL::to('/') }}"><i class="fa fa-sign-in pull-right"></i> Zona de Usuario</a></li>
 						<li><a href="{{ URL::to('auth/logout') }}"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
 					</ul>
 				</li>

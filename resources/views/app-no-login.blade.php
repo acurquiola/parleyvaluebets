@@ -1,5 +1,5 @@
 @include('partials.header')
-@include('partials.navbar')
+@include('partials.navbar-no-login')
 @yield('content')
 @include('partials.footer')
 @yield('script')

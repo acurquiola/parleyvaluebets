@@ -18,6 +18,7 @@ Route::group(['prefix' => 'auth/'], function () {
 	Route::get('logout',  'Auth\AuthController@getLogout');
 });
 
+Route::get('admin/usuarios/confirm/{email}/token/{token}', 'UserController@establecerPassword');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/', 'DeportesController@index')->middleware('auth');
@@ -43,7 +44,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::group(['prefix' => 'admin'], function () {
 		Route::resource('/', 'AdministradorController');
-		Route::get('usuarios/confirmacion/{user}', 'UserController@getConfirmation');
+		Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
+		Route::post('usuarios/establecerPassword', 'UserController@postEstablecerPassword');
 		Route::resource('/usuarios', 'UserController');
 		Route::resource('/historialAcceso', 'AccesoUsuarioController');
 	});
@@ -52,6 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
 	    Route::get('leerXML', 'XmlReaderController@getXml');
 		Route::resource('xml', 'XmlReaderController');
 	});
+
+
 });
 
 
