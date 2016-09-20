@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<p>¡Hola <strong>{{ $data['name'] }}</strong>! Bienvenido a ParleyValueBets</p>.
+	<p>¡Hola <strong>{{ $data['name'] }}</strong>! Bienvenido a ParleyValueBets.</p>
 
 	<p>Necesitamos confirmar tu cuenta de correo electrónico para darte acceso a nuestra web.</p>
 

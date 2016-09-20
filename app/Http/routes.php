@@ -16,10 +16,10 @@ Route::group(['prefix' => 'auth/'], function () {
 	Route::get('login',  'Auth\AuthController@getLogin');
 	Route::post('login',  'Auth\AuthController@postLogin');
 	Route::get('logout',  'Auth\AuthController@getLogout');
+	Route::get('usuarios/confirm/{email}/token/{token}', 'UserController@establecerPassword');
+	Route::post('usuarios/establecerPassword', 'UserController@postEstablecerPassword');
 });
 
-Route::get('admin/usuarios/confirm/{email}/token/{token}', 'UserController@establecerPassword');
-Route::post('usuarios/establecerPassword', 'UserController@postEstablecerPassword');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/', 'DeportesController@index')->middleware('auth');
