@@ -43,12 +43,6 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('todos', 'DeportesController');
 	});
 
-	Route::group(['prefix' => 'admin'], function () {
-		Route::resource('/', 'AdministradorController');
-		Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
-		Route::resource('/usuarios', 'UserController');
-		Route::resource('/historialAcceso', 'AccesoUsuarioController');
-	});
 	
 	Route::group(['prefix' => 'Values/'], function () {
 	    Route::get('leerXML', 'XmlReaderController@getXml');
@@ -58,5 +52,13 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 
+
+
+	Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function () {
+		Route::resource('/', 'AdministradorController');
+		Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
+		Route::resource('/usuarios', 'UserController');
+		Route::resource('/historialAcceso', 'AccesoUsuarioController');
+	});
 
 

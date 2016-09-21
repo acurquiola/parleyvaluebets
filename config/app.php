@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Orchestra\Parser\XmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Torann\GeoIP\GeoIPServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -206,6 +207,7 @@ return [
         'XmlParser' => Orchestra\Parser\Xml\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
 
     ],
 

@@ -86,21 +86,21 @@ class AuthController extends Controller
 
 
         $credentials = Request::only('username', 'password');
+        
 
-        if ($this->auth->attempt($credentials, Request::has('remember')))
-        {
-            session(['username' => Request::get('username')]);
-            $user      = \App\Models\User::where('username', session('username'))->first();
-            $historial = new \App\Models\AccesoUsuario();
-            $historial->fecha_entrada = \Carbon\Carbon::now()->toDateString();
-            $historial->hora_entrada  = \Carbon\Carbon::now()->toTimeString();
-            $historial->user_id       = $user->id;
-            $historial->ip            = Request::ip();
-            $historial->save();
-            session(['acceso' => $historial->id]);
+        if ($this->auth->attempt($credentials, Request::has('remember'))){
+                session(['username' => Request::get('username')]);
+                $user      = \App\Models\User::where('username', session('username'))->first();
+                $historial = new \App\Models\AccesoUsuario();
+                $historial->fecha_entrada = \Carbon\Carbon::now()->toDateString();
+                $historial->hora_entrada  = \Carbon\Carbon::now()->toTimeString();
+                $historial->user_id       = $user->id;
+                $historial->ip            = Request::ip();
+                $historial->save();
+                session(['acceso' => $historial->id]);
             return redirect()->intended($this->redirectPath());
-        }
-
+        };
+        
         return redirect($this->loginPath())
                     ->withInput(Request::only('username', 'password'))
                     ->withErrors([
