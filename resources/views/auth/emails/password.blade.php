@@ -14,6 +14,6 @@
 		<a href="{{ url('password/reset/'.$token) }}">Recuperar Contraseña</a>
 	</p>
 
-	<p>¡Gracias!</p>
+	<p>¡Hasta pronto!</p>
 </body>
 </html>

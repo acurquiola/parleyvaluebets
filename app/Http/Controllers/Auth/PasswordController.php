@@ -25,9 +25,30 @@ class PasswordController extends Controller
      *
      * @return void
      */
+    
+    protected $redirect = 'login';
+    
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    protected function resetPassword($user, $password)
+    {
+        $user->password = $password;
+        $user->save();
+        Auth::login($user);
+    }
+
+
+    protected function getResetValidationRules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required|same:password|min:6',
+        ];
     }
 
 }
