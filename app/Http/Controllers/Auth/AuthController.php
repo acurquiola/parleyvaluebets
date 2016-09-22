@@ -93,13 +93,14 @@ class AuthController extends Controller
         if ($this->auth->attempt($credentials, Request::has('remember'))){
                 session(['username' => Request::get('username')]);
                 $user      = \App\Models\User::where('username', session('username'))->first();
-                $location  = GeoIP::getLocation();
+              // $location  = GeoIP::getLocation();
                 $historial = new \App\Models\AccesoUsuario();
                 $historial->fecha_entrada = \Carbon\Carbon::now()->toDateString();
                 $historial->hora_entrada  = \Carbon\Carbon::now()->toTimeString();
                 $historial->user_id       = $user->id;
                 $historial->ip            = Request::ip();
-                $historial->pais          = $location['country'];
+                $historial->pais          = 'Venezuela';
+               // $historial->pais          = $location['country'];
                 $historial->save();
                 session(['acceso' => $historial->id]);
             return redirect()->intended($this->redirectPath());
@@ -132,7 +133,7 @@ class AuthController extends Controller
         $historial = \App\Models\AccesoUsuario::find(session('acceso'));
         $historial->update(['fecha_salida' => \Carbon\Carbon::now()->toDateString(), 'hora_salida' => \Carbon\Carbon::now()->toTimeString()]); 
         $this->auth->logout();
-        
+
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 

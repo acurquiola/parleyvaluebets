@@ -12,14 +12,14 @@
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<h1>Iniciar Sesión</h1>
 						<div>
-							<input type="text" class="form-control" name="username" placeholder="username" required="" />
+							<input type="text" class="form-control" name="username" placeholder="Username" required="" />
 						</div>
 						<div>
-							<input type="password" class="form-control" name="password" placeholder="password" required="" />
+							<input type="password" class="form-control" name="password" placeholder="Contraseña" required="" />
 						</div>
 						<div>
                             <button type="submit" class="btn btn-primary"> INGRESA </button>
-							<a class="reset_pass" href="#">OLVIDÉ MI CONTRASEÑA</a>
+							<a class="reset_pass" href="{{ action('Auth\PasswordController@getEmail') }}">OLVIDÉ MI CONTRASEÑA</a>
 						</div>
 						<div style="margin-top: 25px" class="separator">
 						</div>

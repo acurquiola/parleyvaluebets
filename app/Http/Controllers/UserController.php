@@ -49,7 +49,7 @@ class UserController extends Controller
         $data['email'] = $user->email;
         $data['confirm_token'] = $user->confirm_token;
          if($user->save()){
-            Mail::send('mails.confirmacion', ['data' => $data], function($mail) use ($user) {
+            Mail::send('emails.confirmacion', ['data' => $data], function($mail) use ($user) {
                 $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
                 $mail->subject('Confirmación de correo electrónico');
                 $mail->to($user->email, $user->name);
@@ -118,7 +118,7 @@ class UserController extends Controller
         $data['email'] = $user->email;
         $data['confirm_token'] = $user->confirm_token;
 
-        Mail::send('mails.confirmacion', ['data' => $data], function($mail) use ($user) {
+        Mail::send('emails.confirmacion', ['data' => $data], function($mail) use ($user) {
             $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
             $mail->subject('Confirmación de correo electrónico');
             $mail->to($user->email, $user->name);
