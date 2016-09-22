@@ -27,4 +27,3 @@ function getTipoUsuario($username){
 	$tipoUsuario = \App\Models\User::where('username', session('username'))->first()->tipoUsuario;
 	return $tipoUsuario;
 }
-
