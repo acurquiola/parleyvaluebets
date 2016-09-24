@@ -13,7 +13,7 @@
 
 //Authentication Routes
 Route::group(['prefix' => 'auth/'], function () {
-	Route::get('login',  'Auth\AuthController@getLogin');
+	Route::get('login',  ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
 	Route::post('login',  'Auth\AuthController@postLogin');
 	Route::get('logout',  'Auth\AuthController@getLogout');
 	Route::get('confirm/{email}/token/{token}', 'UserController@getPassword');

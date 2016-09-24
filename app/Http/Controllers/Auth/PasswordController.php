@@ -34,7 +34,7 @@ class PasswordController extends Controller
 
     public function redirectPath()
     {
-        return route('auth/login');
+        return route('login');
     }
 
     protected function resetPassword($user, $password)
