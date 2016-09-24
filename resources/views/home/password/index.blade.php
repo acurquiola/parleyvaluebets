@@ -13,7 +13,7 @@
 							<div class="box-header with-border">
 								<h3 class="box-title">Establecer Contraseña</h3>
 							</div>
-							{!! Form::model($user, ["url" => action('UserController@postEstablecerPassword'), "method" => "post", 'class'=>"form-horizontal form-label-left"]) !!}
+							{!! Form::model($user, ["url" => action('UserController@postPassword'), "method" => "post", 'class'=>"form-horizontal form-label-left"]) !!}
 							@include('home.password.partials.form', ["SubmitBtnText"=>"Guardar", "disabled" =>""])
 							{!! Form::close() !!}
 						</div>

@@ -27,11 +27,15 @@ class PasswordController extends Controller
      * @return void
      */
     
-    protected $redirect = 'login';
     
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function redirectPath()
+    {
+        return route('/');
     }
 
     protected function resetPassword($user, $password)

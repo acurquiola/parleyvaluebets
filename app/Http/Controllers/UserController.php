@@ -128,7 +128,7 @@ class UserController extends Controller
         return redirect()->action('UserController@index')->with('status', 'Correo electrónico de confirmación enviado exitósamente.');
     }
 
-    public function establecerPassword($email, $confirm_token)
+    public function getPassword($email, $confirm_token)
     {
         $user = User::where('email', $email)->where('confirm_token', $confirm_token)->first();
         if($user){
@@ -136,7 +136,7 @@ class UserController extends Controller
         }
     }
 
-    public function postEstablecerPassword(PasswordRequest $request)
+    public function postPassword(PasswordRequest $request)
     {
         $user = User::where('username', Request::get('username'))
                     ->where('confirm_token', Request::get('confirm_token'))
