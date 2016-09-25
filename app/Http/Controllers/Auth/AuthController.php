@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 
-use App\Models\User;
-use Validator;
+use GeoIP;
 use Request;
+use Validator;
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Illuminate\Contracts\Auth\Guard;
 
-use GeoIP;
 
 class AuthController extends Controller
 {
@@ -43,8 +43,6 @@ class AuthController extends Controller
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
-        //$this->registrar = $registrar;
-
         $this->middleware('guest', ['except' => ['getLogout', 'getLogoutRemember']]);
     }
 
@@ -160,5 +158,16 @@ class AuthController extends Controller
     public function loginPath()
     {
         return property_exists($this, 'loginPath') ? $this->loginPath : '/auth/login';
+    }
+
+    /**
+     * Abre la vista para la confirmación de la sesión iniciada o establecer contraseña de una nueva
+     * 
+     */
+    public function getConfirmarSesion($request){
+        dd($request->all());
+        $user = Auth::user();
+        dd($user);
+        return view('auth.confirmacionSesion', compact($user));
     }
 }

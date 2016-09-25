@@ -13,12 +13,26 @@
 
 //Authentication Routes
 Route::group(['prefix' => 'auth/'], function () {
-	Route::get('login',  ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
+	//Iniciar Sesión
+	Route::get('login',  [
+							'as'   => 'login', 
+							'uses' => 'Auth\AuthController@getLogin'
+						]);
+
 	Route::post('login',  'Auth\AuthController@postLogin');
-	Route::get('logout',  'Auth\AuthController@getLogout');
-	Route::get('confirm/{email}/token/{token}', 'UserController@getPassword');
-	Route::post('password', 'UserController@postPassword');
+
+	//Cerrar Sesión 
+	Route::get('logout',   ['as'   => 'logout', 
+							'uses' => 'Auth\AuthController@getLogout']);
+
+	//Establecer contraseñas
+	Route::get('confirm/{email}/token/{token}', [ 'as' => 'getPassword',
+												  'uses' => 'UserController@getPassword']);
+	Route::post('password',  ['as' => 'postPassword', 
+							 'uses' => 'UserController@postPassword' ]);
+
 });
+
 
 //Password Reset Routes
 Route::group(['prefix' => 'password/'], function(){
@@ -28,9 +42,10 @@ Route::group(['prefix' => 'password/'], function(){
 	Route::post('reset', 'Auth\PasswordController@postReset');
 });
 
-
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/', 'DeportesController@index')->middleware('auth');
+
+	Route::get('/', ['as' => 'home',
+					 'uses' =>  'DeportesController@index']);
 
 	Route::group(['prefix' => 'deportes/'], function () {
 		Route::get('beisbol/primerJugadorEnConseguirHR', 'BeisbolController@getFirstPlayerHitHR');
@@ -50,23 +65,28 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('todos/{market}/masApuestas', 'DeportesController@getMoreMarkets');
 		Route::resource('todos', 'DeportesController');
 	});
-
 	
 	Route::group(['prefix' => 'Values/'], function () {
 	    Route::get('leerXML', 'XmlReaderController@getXml');
 		Route::resource('xml', 'XmlReaderController');
 	});
 
+	Route::get('403', ['as' => 'noAutorizado',
+					 'uses' =>  'DeportesController@index']);
+
+	Route::group(['middleware' => 'role:admin'], function(){
+
+		Route::group(['prefix' => 'admin'], function () {
+			Route::resource('/', 'AdministradorController');
+			Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
+			Route::resource('/usuarios', 'UserController');
+			Route::resource('/historialAcceso', 'AccesoUsuarioController');
+		});
+	});
+
 
 });
 
 
-
-	Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth']], function () {
-		Route::resource('/', 'AdministradorController');
-		Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
-		Route::resource('/usuarios', 'UserController');
-		Route::resource('/historialAcceso', 'AccesoUsuarioController');
-	});
 
 

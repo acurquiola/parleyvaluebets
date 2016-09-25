@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-use App\Http\Requests;
 
-use App\Http\Requests\UserRequest;
-use App\Http\Requests\PasswordRequest;
-use App\Models\User;
 use Mail;
+use Request;
+use App\Models\User;
+use App\Http\Requests;
+use App\Http\Requests\UserRequest;
+use Illuminate\Contracts\Auth\Guard;
+use App\Http\Requests\PasswordRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -130,6 +133,12 @@ class UserController extends Controller
 
     public function getPassword($email, $confirm_token)
     {
+        if(Auth::user() != null){
+            $historial = \App\Models\AccesoUsuario::find(session('acceso'));
+            $historial->update(['fecha_salida' => \Carbon\Carbon::now()->toDateString(), 'hora_salida' => \Carbon\Carbon::now()->toTimeString()]); 
+            Auth::logout();
+        }
+
         $user = User::where('email', $email)->where('confirm_token', $confirm_token)->first();
         if($user){
             return view('home.password.index', compact('user'));
@@ -143,12 +152,19 @@ class UserController extends Controller
                     ->first();
         if($user)
         {
-            $newPassword = Request::get('password');
-            $newToken = str_random(100);
-            $user->update(['password' => \Hash::make($newPassword), 'confirm_token' => $newToken, 'status' => '1']);
+            if($user->status == 0){
+                $newPassword = Request::get('password');
+                $newToken = str_random(100);
+                $user->update(['password' => \Hash::make($newPassword), 'confirm_token' => $newToken, 'status' => '1']);
+                $status="Correo confirmado y contraseña establecida, ¡Puede iniciar sesión ahora!";
+            }else{
+                $status="Correo electrónico confirmado. Si no recuerda su contraseña haga clic en 'Olvidé mi contraseña'";
+            };
 
-            return redirect()->action('Auth\AuthController@getLogin')->with('status', 'Correo confirmado y contraseña establecida, ¡Puede iniciar sesión ahora!');
-        }
+        }else{
+            $status="Correo electrónico incorrecto, comuníquese con el administrador.";
+        };
 
+            return redirect()->action('Auth\AuthController@getLogin')->with('status', $status);
     }
 }

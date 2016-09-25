@@ -2,11 +2,13 @@
 
 <body class="login">
 	<div>
+		<div class="errors">
+            @include('partials.errors')
+		</div>
 		<div class="login_wrapper">
 			<div class="animate form login_form">
-				<h1 align="center" style="color: #337AB7; margin-top: 50px; margin-bottom: -10px"><strong>PARLEYVALUE</strong><u>Bets!</u></h1>
+				<h1 align="center" style="color: #337AB7; margin-bottom: -10px"><strong>PARLEYVALUE</strong><u>Bets!</u></h1>
 				<section class="login_content">
-                    @include('partials.errors')
 				    {!! Form::open( ["url" => "auth/login", "method" => "POST", "class"=>"form-horizontal"]) !!}
 					<form>
 							<input type="hidden" name="_token" value="{{ csrf_token() }}">
