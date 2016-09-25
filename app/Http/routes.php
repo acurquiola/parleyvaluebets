@@ -71,8 +71,6 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('xml', 'XmlReaderController');
 	});
 
-	Route::get('403', ['as' => 'noAutorizado',
-					 'uses' =>  'DeportesController@index']);
 
 	Route::group(['middleware' => 'role:admin'], function(){
 
@@ -90,3 +88,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

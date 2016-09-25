@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use XmlParser;
+use Carbon\Carbon;
 use App\Models\Type;
+use App\Models\Clase;
 use App\Models\Market;
 use App\Models\Participant;
 use App\Models\HistoricoLogro;
-use App\Models\Clase;
-use Carbon\Carbon;
 
 class XmlReaderController extends Controller
 {
@@ -183,6 +183,4 @@ class XmlReaderController extends Controller
     	}
     return redirect('/');
     }
-
-
 }

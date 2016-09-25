@@ -11,7 +11,7 @@
 	<p>Hemos recibido una solicitud de recuperación de contraseña de tu parte</p>
 
 	<p>Por favor haz clic en el siguiente enlace y completa tu solicitud: 
-		<a href="{{ url('password/reset/'.$token) }}">Recuperar Contraseña</a>
+	<a href="{{ url('password/reset', $token).'?email='.urlencode($user->getEmailForPasswordReset()) }}">Recuperar Contraseña</a>
 	</p>
 
 	<p>¡Hasta pronto!</p>

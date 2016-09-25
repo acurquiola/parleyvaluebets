@@ -39,7 +39,7 @@ class PasswordController extends Controller
 
     protected function resetPassword($user, $password)
     {
-        $user->password = $password;
+        $user->password = \Hash::make($password);
         $user->save();
     }
 

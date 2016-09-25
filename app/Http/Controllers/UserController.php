@@ -140,8 +140,10 @@ class UserController extends Controller
         }
 
         $user = User::where('email', $email)->where('confirm_token', $confirm_token)->first();
-        if($user){
+        if($user->status == 0){
             return view('home.password.index', compact('user'));
+        }else{
+            return redirect()->route('login')->with('status', 'Este correo ya ha sido verificado previamente. Si no recuerda su contraseña, haga clic en "Olvidé mi contraseña"');
         }
     }
 
@@ -158,7 +160,7 @@ class UserController extends Controller
                 $user->update(['password' => \Hash::make($newPassword), 'confirm_token' => $newToken, 'status' => '1']);
                 $status="Correo confirmado y contraseña establecida, ¡Puede iniciar sesión ahora!";
             }else{
-                $status="Correo electrónico confirmado. Si no recuerda su contraseña haga clic en 'Olvidé mi contraseña'";
+                $status='Este correo ya ha sido verificado previamente. Si no recuerda su contraseña, haga clic en "Olvidé mi contraseña"';
             };
 
         }else{
