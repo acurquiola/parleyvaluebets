@@ -53,5 +53,24 @@ class PasswordController extends Controller
             'password_confirmation' => 'required|same:password|min:6',
         ];
     }
+    
+    /**
+     * Display the password reset view for the given token.
+     *
+     * If no token is present, display the link request form.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $token
+     * @return \Illuminate\Http\Response
+     */
+    public function getReset(Request $request, $token = null)
+    {
+        
+        if(Auth::user() != null){
+            Auth::logout();
+        }
+        return $this->showResetForm($request, $token);
+    }
+
 
 }

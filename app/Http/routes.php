@@ -33,7 +33,6 @@ Route::group(['prefix' => 'auth/'], function () {
 
 });
 
-
 //Password Reset Routes
 Route::group(['prefix' => 'password/'], function(){
 	Route::get('email', 'Auth\PasswordController@getEmail');
@@ -41,6 +40,7 @@ Route::group(['prefix' => 'password/'], function(){
 	Route::get('reset/{token}', 'Auth\PasswordController@getReset');
 	Route::post('reset', 'Auth\PasswordController@postReset');
 });
+
 
 Route::group(['middleware' => 'auth'], function() {
 

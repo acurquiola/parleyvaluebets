@@ -8,9 +8,10 @@ use Request;
 use App\Models\User;
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
+use App\Jobs\SendConfirmationMail;
 use Illuminate\Contracts\Auth\Guard;
-use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PasswordRequest;
 
 class UserController extends Controller
 {
@@ -48,16 +49,8 @@ class UserController extends Controller
         $user = User::create($request->except('password'));
         $confirm_token = str_random(100);
         $user->confirm_token = $confirm_token;
-        $data['name'] = $user->name;
-        $data['email'] = $user->email;
-        $data['confirm_token'] = $user->confirm_token;
          if($user->save()){
-            Mail::send('emails.confirmacion', ['data' => $data], function($mail) use ($user) {
-                $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
-                $mail->subject('Confirmación de correo electrónico');
-                $mail->to($user->email, $user->name);
-
-            });
+            $this->dispatch(new SendConfirmationMail($user));
             return redirect()->action('UserController@index')->with('status', 'Usuario creado exitósamente');
         }
     }
@@ -117,16 +110,7 @@ class UserController extends Controller
     {
 
         $user = User::find($id);   
-        $data['name'] = $user->name;
-        $data['email'] = $user->email;
-        $data['confirm_token'] = $user->confirm_token;
-
-        Mail::send('emails.confirmacion', ['data' => $data], function($mail) use ($user) {
-            $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
-            $mail->subject('Confirmación de correo electrónico');
-            $mail->to($user->email, $user->name);
-
-        });
+        $this->dispatch(new SendConfirmationMail($user));
 
         return redirect()->action('UserController@index')->with('status', 'Correo electrónico de confirmación enviado exitósamente.');
     }
@@ -134,8 +118,6 @@ class UserController extends Controller
     public function getPassword($email, $confirm_token)
     {
         if(Auth::user() != null){
-            $historial = \App\Models\AccesoUsuario::find(session('acceso'));
-            $historial->update(['fecha_salida' => \Carbon\Carbon::now()->toDateString(), 'hora_salida' => \Carbon\Carbon::now()->toTimeString()]); 
             Auth::logout();
         }
 
