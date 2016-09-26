@@ -2,15 +2,15 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
-
-use XmlParser;
-use App\Models\Type;
+use App\Models\Clase;
+use App\Models\HistoricoLogro;
 use App\Models\Market;
 use App\Models\Participant;
-use App\Models\HistoricoLogro;
-use App\Models\Clase;
+use App\Models\Type;
 use Carbon\Carbon;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+use XmlParser;
 
 class XmlCommand extends Command
 {
@@ -186,6 +186,6 @@ class XmlCommand extends Command
                 }
             }
         }
-        $this->info('Los logros se han actualizado correctamente.');
+        Log::info('Los logros se han actualizado correctamente.');
     }
 }
