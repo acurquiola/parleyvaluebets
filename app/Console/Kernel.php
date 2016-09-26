@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         //          
-        $schedule->command('xml:command')->cron('1 * * * *');
+        $schedule->command('xml:command')->everyMinute();
     }
 }
