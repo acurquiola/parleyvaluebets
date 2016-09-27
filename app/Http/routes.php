@@ -1,4 +1,4 @@
-e<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +25,16 @@ Route::group(['prefix' => 'auth/'], function () {
 	Route::get('logout',   ['as'   => 'logout', 
 							'uses' => 'Auth\AuthController@getLogout']);
 
-	//Establecer contraseñas
-	Route::get('confirm/{email}/token/{token}', [ 'as' => 'getPassword',
-												  'uses' => 'UserController@getPassword']);
-	Route::post('password',  ['as' => 'postPassword', 
-							 'uses' => 'UserController@postPassword' ]);
+	Route::group(['middleware' => 'routeConfirm'], function(){
 
+		//Establecer contraseñas
+		Route::get('confirm/{email}/token/{token}', [ 'as'   => 'getPassword',
+													  'uses' => 'UserController@getPassword']);
+		
+		Route::post('password',  ['as'  => 'postPassword', 
+								 'uses' => 'UserController@postPassword' ]);
+
+	});
 });
 
 //Password Reset Routes

@@ -33,7 +33,7 @@ class SendConfirmationMail extends Job implements ShouldQueue
     public function handle()
     {        
         Mail::send('emails.confirmacion', ['user' => $this->user], function(Message $mail){
-            $mail->from(env('MAIL_USERNAME'), 'INFO ParleyValueBets');
+            $mail->from('info@parleyvaluebets.ru', 'INFO ParleyValueBets');
             $mail->subject('Confirmación de correo electrónico');
             $mail->to($this->user->email, $this->user->name);
 

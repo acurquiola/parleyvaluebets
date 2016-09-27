@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>403</title>
+	<title>404</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -44,19 +44,19 @@
 			<div class="col-md-12">
 				<div class="col-middle">
 					<div class="text-center text-center">
-						<h1 class="error-number">403</h1>
-						<h2>Acceso Denegado</h2>
-						<p>No tiene permisos para acceder a esta página 
-						</p>
-						<p>Si piensa que esto es un error, comuníquese con el administrador 
-						</p>
+						<h1 class="error-number">404</h1>
+						<h2>¡Ups! Esta página no está disponible.</h2>
 						<div class="mid_center">
-							<h3><a href="{{ redirect()->back()->getTargetUrl() }}"><span class="fa fa-arrow-left"></span>Volver</a></h3>
+							<h3>
+								<a href='{{ URL::to('/') }}' class="fa fa-arrow-circle-left">
+									<b>Volver</b>
+								</a>
+							</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>s
 </body>
 </html>
