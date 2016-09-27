@@ -16,7 +16,7 @@ class AccesoUsuarioController extends Controller
      */
     public function index()
     {
-        $historial = AccesoUsuario::orderBy('fecha', 'DESC')->orderBy('hora', 'DESC')->get();
+        $historial = AccesoUsuario::orderBy('fecha_entrada', 'DESC')->orderBy('hora_entrada', 'DESC')->get();
     	return view('usuarios.historialAcceso.index', compact('historial'));
     }
 
