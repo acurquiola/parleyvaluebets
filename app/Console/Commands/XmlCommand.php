@@ -19,14 +19,14 @@ class XmlCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'xml:command';
+    protected $signature = 'xml:beisbol';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros.';
+    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros de beisbol.';
 
     /**
      * Create a new command instance.
@@ -186,6 +186,6 @@ class XmlCommand extends Command
                 }
             }
         }
-        Log::info('Los logros se han actualizado correctamente.');
+        Log::info('Los logros de beisbol se han actualizado correctamente.');
     }
 }

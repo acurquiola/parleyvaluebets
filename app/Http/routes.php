@@ -37,6 +37,9 @@ Route::group(['prefix' => 'auth/'], function () {
 	});
 });
 
+$exitCode = \Artisan::call('schedule:run', [
+
+]);
 
 //Password Reset Routes
 Route::group(['prefix' => 'password/'], function(){
