@@ -37,6 +37,7 @@ Route::group(['prefix' => 'auth/'], function () {
 	});
 });
 
+
 //Password Reset Routes
 Route::group(['prefix' => 'password/'], function(){
 	Route::get('email', 'Auth\PasswordController@getEmail');

@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
-        App\Commands\XmlCommand::class,
+        Commands\XmlCommand::class,
     ];
 
     /**
@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         //          
-        $schedule->command('xml:command')->cron('2 * * * * *');
+        $schedule->command('xml:command')->cron('5 * * * * *');
     }
 }
