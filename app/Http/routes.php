@@ -37,9 +37,7 @@ Route::group(['prefix' => 'auth/'], function () {
 	});
 });
 
-$exitCode = \Artisan::call('schedule:run', [
-        $schedule->command('xml:beisbol')->everyFiveMinutes();
-	]);
+
 
 //Password Reset Routes
 Route::group(['prefix' => 'password/'], function(){
