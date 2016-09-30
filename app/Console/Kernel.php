@@ -29,6 +29,6 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         //          
 
-        $schedule->command('xml:beisbol')->cron('20 * *  * * *);
+        $schedule->command('xml:beisbol')->cron('20 * *  * * *');
     }
 }
