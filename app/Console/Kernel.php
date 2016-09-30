@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Models\Clase;
+use App\Models\TiempoLectura;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -27,8 +29,11 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        //          
+        //     
+        
+        $clase_id = Clase::where('name', 'Baseball')->first()->id;
+        $minutos  = TiempoLectura::where('clase_id', $clase_id)->first()->minutos; 
 
-        $schedule->command('xml:beisbol')->cron('20 * *  * * *);
+        $schedule->command('xml:beisbol')->cron('/'.$minutos.' * *  * * *');
     }
 }

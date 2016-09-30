@@ -14,10 +14,8 @@
 //Authentication Routes
 Route::group(['prefix' => 'auth/'], function () {
 	//Iniciar Sesión
-	Route::get('login',  [
-							'as'   => 'login', 
-							'uses' => 'Auth\AuthController@getLogin'
-						]);
+	Route::get('login',  ['as'   => 'login', 
+							'uses' => 'Auth\AuthController@getLogin']);
 
 	Route::post('login',  'Auth\AuthController@postLogin');
 
@@ -26,14 +24,12 @@ Route::group(['prefix' => 'auth/'], function () {
 							'uses' => 'Auth\AuthController@getLogout']);
 
 	Route::group(['middleware' => 'routeConfirm'], function(){
-
 		//Establecer contraseñas
 		Route::get('confirm/{email}/token/{token}', [ 'as'   => 'getPassword',
 													  'uses' => 'UserController@getPassword']);
 		
 		Route::post('password',  ['as'  => 'postPassword', 
 								 'uses' => 'UserController@postPassword' ]);
-
 	});
 });
 
@@ -74,14 +70,16 @@ Route::group(['middleware' => 'auth'], function() {
 	
 	Route::group(['prefix' => 'Values/'], function () {
 	    Route::get('leerXML', 'XmlReaderController@getXml');
-		Route::resource('xml', 'XmlReaderController');
+		Route::resource('xml', 'XmlReaderController', ['only' => ['index']]);
 	});
 
 
 	Route::group(['middleware' => 'role:admin'], function(){
 
 		Route::group(['prefix' => 'admin'], function () {
-			Route::resource('/', 'AdministradorController');
+			Route::get('configuracion', 'AdministradorController@getConfiguracion');
+			Route::post('configuracion', 'AdministradorController@postConfiguracion');
+			Route::resource('/', 'AdministradorController', ['only' => ['index']]);
 			Route::get('usuarios/confirmacion/{user}', 'UserController@sendConfirmation');
 			Route::resource('/usuarios', 'UserController');
 			Route::resource('/historialAcceso', 'AccesoUsuarioController');
@@ -90,11 +88,3 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 });
-
-
-
-
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');

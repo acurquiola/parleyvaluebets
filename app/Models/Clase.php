@@ -12,4 +12,9 @@ class Clase extends Model
     {
         return $this->hasMany('App\Models\Type', 'clase_id', 'id');
     }
+
+    public function tiempos()
+    {
+        return $this->hasOne('App\Models\TiempoLectura', 'clase_id', 'id');
+    }
 }

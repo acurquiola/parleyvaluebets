@@ -2794,7 +2794,7 @@ select[multiple].input-lg {
   display: block;
   width: 34px;
   height: 34px;
-  line-height: 34px;
+  line-height: 100px;
   text-align: center;
   pointer-events: none;
 }

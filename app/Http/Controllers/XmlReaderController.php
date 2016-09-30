@@ -37,7 +37,6 @@ class XmlReaderController extends Controller
     	return view('home.reporte', compact('markets'));
     }
 
-
     public function getXml()
     {
     	$rutas = ['http://185.81.165.215/baseball/Baseball',
