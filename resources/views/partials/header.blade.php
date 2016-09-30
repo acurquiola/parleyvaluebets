@@ -16,7 +16,7 @@
 		<link href="{{ asset('/assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
 		<!-- Fonts -->
-		<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+		<link href="{{ asset('/assets/fonts/glyphicons-halflings-regular.ttf') }}" rel="stylesheet">
 
 		<!-- App style -->
 		<link href="{{ asset('/assets/css/app/app.css') }}" rel="stylesheet">

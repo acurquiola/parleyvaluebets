@@ -27,10 +27,12 @@
 					<!-- sidebar menu -->
 					<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 						<div class="menu_section">
-							<h3>General</h3>
 							<ul class="nav side-menu">
+								<li class="divider">Usuarios</li>
 								<li><a href="{{ action('UserController@index') }}"><i class="fa fa-user"></i> Gestión de Usuarios</a></li>
 								<li><a href="{{ action('AccesoUsuarioController@index') }}"><i class="fa fa-list"></i> Historial de Acceso</a></li>
+								<li class="divider">General</li>
+    							<li><a href="{{ action('AdministradorController@getConfiguracion') }}"><i class="fa fa-gears"></i>Configuración General</li>
 							</ul>
 						</div>
 
