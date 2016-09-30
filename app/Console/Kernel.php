@@ -32,7 +32,11 @@ class Kernel extends ConsoleKernel
         //     
         
         $clase_id = Clase::where('name', 'Baseball')->first()->id;
-        $minutos  = TiempoLectura::where('clase_id', $clase_id)->first()->minutos; 
+        if($clase_id != null){
+            $minutos  = TiempoLectura::where('clase_id', $clase_id)->first()->minutos; 
+        }else{
+            $minutos = '20';
+        }
 
         $schedule->command('xml:beisbol')->cron('/'.$minutos.' * *  * * *');
     }
