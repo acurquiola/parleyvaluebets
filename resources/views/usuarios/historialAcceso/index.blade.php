@@ -47,6 +47,7 @@
 	$(document).ready(function() {
 		$('#datatable').dataTable();
 		$('#datatable-keytable').DataTable({
+			order: [[ 4, 'desc' ], [ 5, 'desc' ]],
 			language: {
 				search: "Buscar:",
 				paginate: {
