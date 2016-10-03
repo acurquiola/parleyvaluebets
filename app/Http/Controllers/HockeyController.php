@@ -12,7 +12,7 @@ class HockeyController extends Controller
 {
     public function index()
     {
-		$className = 'NHL';
+		$className       = 'NHL';
 		$hockeyID        = Clase::where('name', $className)->first()->id;
 		$competiciones   = Type::where('clase_id', $hockeyID)->get();
 		$competicionesID = $competiciones->lists('id')->toArray();
