@@ -39,11 +39,11 @@
     									</div>
     									<div class="collapse navbar-collapse">
     										<ul class="nav navbar-nav">
-    											<li {{ (\Request::is('deportes/beisbol*'))?"class=active":"" }}><a href="{{ action('BeisbolController@index') }}">Béisbol</a></li>
+                                                <li {{ (\Request::is('deportes/beisbol*'))?"class=active":"" }}><a href="{{ action('BeisbolController@index') }}">Béisbol</a></li>
+    											<li {{ (\Request::is('deportes/hockey*'))?"class=active":"" }}><a href="{{ action('HockeyController@index') }}">Hockey</a></li>
     											<li><a href="#">Fútbol</a></li>
     											<li><a href="#">Tenis</a></li>
     											<li><a href="#">Baloncesto</a></li>
-    											<li><a href="#">Hockey</a></li>
     										</ul>
     										<ul class="nav navbar-nav">
     											<li><a href="#">Fútbol Americano</a></li>
