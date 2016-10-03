@@ -12,21 +12,21 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use XmlParser;
 
-class XmlCommand extends Command
+class XmlHockey extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'xml:beisbol';
+    protected $signature = 'xml:hockey';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros de beisbol.';
+    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros de hockey.';
 
     /**
      * Create a new command instance.
@@ -45,14 +45,15 @@ class XmlCommand extends Command
      */
     public function handle()
     {
-        $rutas = ['http://185.81.165.215/baseball/Baseball',
-                  'http://185.81.165.215/baseball/score/correct_score',
-                  'http://185.81.165.215/baseball/higher_lower/higher_lower',
-                  'http://185.81.165.215/baseball/m_result/m_result',
-                  'http://185.81.165.215/baseball/odd_even/odd_even',
-                  'http://185.81.165.215/baseball/win_win/win_win',
-                  'http://185.81.165.215/baseball/f_score/f_score',
-                  'http://185.81.165.215/baseball/ag/ag'
+
+        $rutas = ['http://185.81.165.215/sport/nhl/nhl',
+                  'http://185.81.165.215/sport/nhl/d_chance/double_chance',
+                  'http://185.81.165.215/sport/nhl/draw_no_bet/draw_no_bet',
+                  'http://185.81.165.215/sport/nhl/higher_lower/higher_lower',
+                  'http://185.81.165.215/sport/nhl/m_result/m_result',
+                  'http://185.81.165.215/sport/nhl/score/correct_score',
+                  'http://185.81.165.215/sport/nhl/western/western',
+                  'http://185.81.165.215/sport/nhl/win_win/win_win'
                   ];
 
         foreach ($rutas as $index => $ruta) {
@@ -186,6 +187,6 @@ class XmlCommand extends Command
                 }
             }
         }
-        Log::info('Los logros de beisbol se han actualizado correctamente.');
+        Log::info('Los logros de hockey se han actualizado correctamente.');
     }
 }

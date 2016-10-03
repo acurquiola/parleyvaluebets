@@ -14,8 +14,9 @@ class DeportesController extends Controller
 	public function index(){
 		$symbol    = '>';
 		$logros    = [];
-		$marketsML = getMarkets('- Money Line');
-		$marketsTR = getMarkets('- Total Runs');
+		$type = '%';
+		$marketsML = getMarkets('- Money Line', $type);
+		$marketsTR = getMarkets('- Total Runs', $type);
 		$nombre    = 'Apuestas';
 
 		foreach ($marketsML as $index => $mL) {
@@ -112,8 +113,9 @@ class DeportesController extends Controller
 	public function getMoreMarkets($market){
 		$nombre    = 'Más Apuestas';
 		$symbol    = '>';
+		$type = '%';
 		$marketExp = explode('-', $market);
-		$markets   = getMarkets($marketExp[0]);
+		$markets   = getMarkets($marketExp[0], $type);
         $participantHist = [];
 
         foreach ($markets as $market) {

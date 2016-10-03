@@ -24,7 +24,7 @@ class AdministradorController extends Controller
 
         $lectura = TiempoLectura::where('clase_id', $request->clase_id)->first();
 
-        if($lectura->count()>0){
+        if($lectura != null){
             $lectura->update(['minutos' => $request->minutos]);
         }else{
             $lectura = TiempoLectura::create(['minutos' => $request->minutos, 'clase_id' => $request->clase_id]);

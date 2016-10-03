@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function() {
 					 'uses' =>  'DeportesController@index']);
 
 	Route::group(['prefix' => 'deportes/'], function () {
+		//Beisbol
 		Route::get('beisbol/primerJugadorEnConseguirHR', 'BeisbolController@getFirstPlayerHitHR');
 		Route::get('beisbol/jugadorEnConseguirHR', 'BeisbolController@getPlayerHitHR');
 		Route::get('beisbol/{market}/masApuestas', 'BeisbolController@getMoreMarkets');
@@ -63,7 +64,14 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('beisbol/ganadorLigaAmericana', 'BeisbolController@getAmericanLeagueWinner');
 		Route::get('beisbol/ganadorSerieMundial', 'BeisbolController@getWorldSerieWinner');
 		Route::get('beisbol/ganadorDivision', 'BeisbolController@getDivisionWinner');
-		Route::resource('beisbol', 'BeisbolController');
+		Route::resource('beisbol', 'BeisbolController', ['only' => ['index']]);
+
+		//Hockey
+		Route::get('hockey/{type}/{competicion}', 'HockeyController@getCompeticiones');
+		Route::get('hockey/{type}/{competicion}/masApuestas', 'HockeyController@getMasCompetencias');
+		Route::resource('hockey', 'HockeyController', ['only' => ['index']]);
+
+		//Todos los deportes
 		Route::get('todos/{market}/masApuestas', 'DeportesController@getMoreMarkets');
 		Route::resource('todos', 'DeportesController');
 	});
