@@ -32,6 +32,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         //     
         
+
         $beisbolID      = Clase::where('name', 'Baseball')->first()->id;
         $hockeyID       = Clase::where('name', 'NHL')->first()->id;
         $minutosBeisbol = TiempoLectura::where('clase_id', $beisbolID)->first()->minutos;
