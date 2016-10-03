@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         
         $clase_id = Clase::where('name', 'Baseball')->first()->id;
         if($clase_id != null){
-            $minutos  = TiempoLectura::where('clase_id', $clase_id)->first()->minutos; 
+            $minutos  = TiempoLectura::where('clase_id', $clase_id)->first()->minutos;
         }else{
             $minutos = '20';
         }
