@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
         $minutosBeisbol = TiempoLectura::where('clase_id', $beisbolID)->first()->minutos;
         $minutosHockey  = TiempoLectura::where('clase_id', $hockeyID)->first()->minutos;
 
-        $schedule->command('xml:beisbol')->cron('/'.(isset($minutosBeisbol))?$minutosBeisbol:'10'.' * *  * * *');
-        $schedule->command('xml:hockey')->cron('/'.(isset($minutosHockey))?$minutosHockey:'10'.' * *  * * *');
+        $schedule->command('xml:beisbol')->cron('/'.$minutosBeisbol.' * *  * * *');
+        $schedule->command('xml:hockey')->cron('/'.$minutosHockey.' * *  * * *');
     }
 }
