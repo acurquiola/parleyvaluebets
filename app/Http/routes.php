@@ -27,10 +27,10 @@ Route::group(['prefix' => 'auth/'], function () {
 		//Establecer contraseñas
 		Route::get('confirm/{email}/token/{token}', [ 'as'   => 'getPassword',
 													  'uses' => 'UserController@getPassword']);
-		
-		Route::post('password',  ['as'  => 'postPassword', 
-								 'uses' => 'UserController@postPassword' ]);
 	});
+		
+	Route::post('password',  ['as'  => 'postPassword', 
+							 'uses' => 'UserController@postPassword' ]);
 });
 
 

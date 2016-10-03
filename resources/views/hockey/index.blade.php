@@ -22,7 +22,7 @@
     									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     										<ul class="treeview-menu">
 		    									@foreach($competiciones as $competicion)
-		    										<h5><strong>{{ $competicion->name }}</strong></h5>
+		    										<h5 class="col-sm-12"><strong>{{ $competicion->name }}</strong></h5>
 		    										@foreach($nombres as $nombre => $comp)
 		    											@if($comp == $competicion->id)
 				                                            <ul class="nav navbar-nav col-sm-3" >
