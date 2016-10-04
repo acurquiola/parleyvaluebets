@@ -29,7 +29,7 @@ class HockeyController extends Controller
     public function getCompeticiones($typeID, $competicion)
     {
 		$type            = Type::find($typeID);
-		$markets         = getHockey($type->name, $competicion);
+		$markets         = getCompetencias($type->name, $competicion);
 		$nombre          = $competicion;
 		$participantHist = [];
 
@@ -50,7 +50,7 @@ class HockeyController extends Controller
 		$nombre          = 'Más Apuestas';
 		$marketExp       = explode('-', $competicion);
 		$type            = Type::find($typeID);
-		$markets         = getHockey($type->name, $marketExp[0]);
+		$markets         = getCompetencias($type->name, $marketExp[0]);
 		$participantHist = [];
 
         foreach ($markets as $market) {

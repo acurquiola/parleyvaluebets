@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         // Commands\Inspire::class,
         Commands\XmlBeisbol::class,
         Commands\XmlHockey::class,
+        Commands\XmlFutbolAmericano::class,
     ];
 
     /**
@@ -32,13 +33,16 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         //     
         
+        
+        $beisbolID              = Clase::where('name', 'Baseball')->first()->id;
+        $hockeyID               = Clase::where('name', 'NHL')->first()->id;
+        $futbolAmericanoID      = Clase::where('name', 'American Football')->first()->id;
+        $minutosBeisbol         = TiempoLectura::where('clase_id', $beisbolID)->first()->minutos;
+        $minutosHockey          = TiempoLectura::where('clase_id', $hockeyID)->first()->minutos;
+        $minutosFutbolAmericano = TiempoLectura::where('clase_id', $futbolAmericanoID)->first()->minutos;
 
-        $beisbolID      = Clase::where('name', 'Baseball')->first()->id;
-        $hockeyID       = Clase::where('name', 'NHL')->first()->id;
-        $minutosBeisbol = TiempoLectura::where('clase_id', $beisbolID)->first()->minutos;
-        $minutosHockey  = TiempoLectura::where('clase_id', $hockeyID)->first()->minutos;
-
-        $schedule->command('xml:beisbol')->cron('/'.(isset($minutosBeisbol))?$minutosBeisbol:'10'.' * *  * * *');
-        $schedule->command('xml:hockey')->cron('/'.(isset($minutosHockey))?$minutosHockey:'10'.' * *  * * *');
+        $schedule->command('xml:beisbol')->cron('/'.$minutosBeisbol.' * *  * * *');
+        $schedule->command('xml:hockeyID')->cron('/'.$minutosHockey.' * *  * * *');
+        $schedule->command('xml:futbolAmericano')->cron('/'.$minutosFutbolAmericano.' * *  * * *');
     }
 }

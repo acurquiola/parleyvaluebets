@@ -66,6 +66,11 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('beisbol/ganadorDivision', 'BeisbolController@getDivisionWinner');
 		Route::resource('beisbol', 'BeisbolController', ['only' => ['index']]);
 
+		//Fútbol Americano
+		Route::get('futbolAmericano/{type}/{competicion}', 'FutbolAmericanoController@getCompetencias');
+		Route::get('futbolAmericano/{type}/{competicion}/masApuestas', 'FutbolAmericanoController@getMasCompetencias');
+		Route::resource('futbolAmericano', 'FutbolAmericanoController', ['only' => ['index']]);
+
 		//Hockey
 		Route::get('hockey/{type}/{competicion}', 'HockeyController@getCompeticiones');
 		Route::get('hockey/{type}/{competicion}/masApuestas', 'HockeyController@getMasCompetencias');
