@@ -44,5 +44,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('xml:beisbol')->cron('/'.$minutosBeisbol.' * *  * * *');
         $schedule->command('xml:hockeyID')->cron('/'.$minutosHockey.' * *  * * *');
         $schedule->command('xml:futbolAmericano')->cron('/'.$minutosFutbolAmericano.' * *  * * *');
+
     }
 }
