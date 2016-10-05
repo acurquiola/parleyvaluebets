@@ -33,11 +33,11 @@ function getCompetencias($type, $competicion){
 										$query->orderBy('participants.oddsDecimal', 'ASC');
 							}])->where(function ($query) use ($today, $competicion, $type){
 						  $query->where('markets.betTillDate', '>', $today->toDateString())
-								->where('markets.name', 'like', '%- '.$competicion.'%')
+								->where('markets.name', 'like', '%'.$competicion.'%')
 								->where('markets.type_id',  ($type == 0)?'>':'=', $type);
 						  })->orWhere(function($query) use ($today,   $competicion, $type){
 								$query->where('markets.betTillDate', '=', $today->toDateString())
-								->where('markets.name', 'like', '%- '.$competicion.'%')
+								->where('markets.name', 'like', '%'.$competicion.'%')
 								->where('markets.betTillTime', '>', $today->toTimeString())
 								->where('markets.type_id', $type);
 							})->orderBy('markets.betTillDate', 'ASC')

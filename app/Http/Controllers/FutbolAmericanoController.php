@@ -39,9 +39,10 @@ class FutbolAmericanoController extends Controller
     }
 
     public function getMasCompetencias($type, $name){
+
         $nombre          = 'Más Apuestas';
         $marketExp       = explode('-', $name);
-        $markets         = getCompetencias($type, $marketExp[0]);
+        $markets         = getCompetencias($type, trim($marketExp[0]));
         $participantHist = [];
 
         foreach ($markets as $market) {

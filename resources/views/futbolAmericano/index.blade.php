@@ -23,6 +23,8 @@
     										<ul class="treeview-menu">
 
 		    									<h5><strong>NFL</strong></h5>
+		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas de Ganador Final</strong></h6>
+
 	                                            <ul class="nav navbar-nav col-sm-3" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Division Winner']) }}">Ganador de División</a></li>
 	                                            </ul>

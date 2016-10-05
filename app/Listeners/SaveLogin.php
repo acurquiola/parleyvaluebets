@@ -35,7 +35,7 @@ class SaveLogin
         $historial->hora_entrada  = \Carbon\Carbon::now()->toTimeString();
         $historial->user_id       = $event->user->id;
         $historial->ip            = Request::ip();
-     //   $historial->pais          = 'Venezuela';
+        //$historial->pais          = 'Venezuela';
         $historial->pais          = $location['country'];
         if($historial->save()){
             session(['acceso' => $historial->id]);

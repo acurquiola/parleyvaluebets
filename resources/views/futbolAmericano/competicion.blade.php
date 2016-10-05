@@ -10,6 +10,7 @@
 			<ol class="breadcrumb">
 				<li><a href="{{ URL::to('deportes/futbolAmericano') }}">Fútbol Americano</a></li>
 				@if($nombre != 'Más Apuestas')
+					<li><a href="{{ URL::to('deportes/futbolAmericano') }}">{{ $type }}</a></li>
 					<li><a class="active"><strong>{{ $nombre }}</strong></a></li>
 				@else
 					<li><a href="{{ redirect()->back()->getTargetUrl() }}">{{ $type }}</a></li>
