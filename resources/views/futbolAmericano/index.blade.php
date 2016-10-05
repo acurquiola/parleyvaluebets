@@ -25,22 +25,36 @@
 		    									<h5><strong>NFL</strong></h5>
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas de Ganador Final</strong></h6>
 
-	                                            <ul class="nav navbar-nav col-sm-3" >
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Super Bowl Outright']) }}">Ganador de Super Bowl</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Division Winner']) }}">Ganador de División</a></li>
 	                                            </ul>
-	                                            <ul class="nav navbar-nav col-sm-3" >
+	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Conference Winner']) }}">Ganador de Conferencia</a></li>
 	                                            </ul>
 
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas por Encuentros</strong></h6>
-	                                            <ul class="nav navbar-nav col-sm-3" >
+	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Money Line']) }}">Ganador del Partido</a></li>
 	                                            </ul>
-	                                            <ul class="nav navbar-nav col-sm-3" >
+	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Total Points']) }}">Total de Puntos</a></li>
 	                                            </ul>
-	                                            <ul class="nav navbar-nav col-sm-3" >
+	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => 'Spread']) }}">Ganador con Hándicap</a></li>
+	                                            </ul>
+
+		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas en Primera Mitad</strong></h6>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '1st Half Money Line']) }}">Ganador - Primera mitad</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '1st Half Total Points']) }}">Total de Puntos - Primera mitad</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '1st Half Money Line']) }}">Ganador con Hándicap- Primera mitad</a></li>
 	                                            </ul>
 	                                           
 		                                    </ul>

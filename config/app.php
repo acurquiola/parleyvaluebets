@@ -150,6 +150,8 @@ return [
         Orchestra\Parser\XmlServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -208,6 +210,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
