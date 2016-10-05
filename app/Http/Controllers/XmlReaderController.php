@@ -152,7 +152,7 @@ class XmlReaderController extends Controller
         								if($participantsHist == NULL){
 
                                             //Si no tiene incidencia y la fecha y hora del registro son menores a la del ultimo registro guardado se crea una nueva incidencia
-        									if (($participants->lastUpdateDate < $participant['lastUpdateDate']) || (($participants->lastUpdateDate = $participant['lastUpdateDate'])  && $participants->lastUpdateTime < $participant['lastUpdateTime'] )){
+        									if (($participants->handicap < $participant['handicap']) || ($participants->lastUpdateDate < $participant['lastUpdateDate']) || (($participants->lastUpdateDate = $participant['lastUpdateDate'])  && $participants->lastUpdateTime < $participant['lastUpdateTime'] )){
         										if ($participants->oddsDecimal != $participant['oddsDecimal']){
         											$marketNew = $markets;
                                                     $participantHist                 = new  HistoricoLogro();
@@ -166,11 +166,11 @@ class XmlReaderController extends Controller
         											$participantHist->save();
         											$participants->update(['isChange'=>true]);
         										}else{
-        											$participants->update(['lastUpdateDate'=>$participant['lastUpdateDate'],'lastUpdateTime'=>$participant['lastUpdateTime']]);
+        											$participants->update(['handicap'=>$participant['handicap'],'lastUpdateDate'=>$participant['lastUpdateDate'],'lastUpdateTime'=>$participant['lastUpdateTime']]);
         										}
         									}
                                         //Si tiene histórico se verifican la fecha y hora de creación si es menor la almacenada se registran
-        								}elseif(($participantsHist->lastUpdateDate < $participant['lastUpdateDate']) || (($participantsHist->lastUpdateDate = $participant['lastUpdateDate'])  && $participantsHist->lastUpdateTime < $participant['lastUpdateTime'] )){
+        								}elseif(($participants->handicap < $participant['handicap']) || ($participantsHist->lastUpdateDate < $participant['lastUpdateDate']) || (($participantsHist->lastUpdateDate = $participant['lastUpdateDate'])  && $participantsHist->lastUpdateTime < $participant['lastUpdateTime'] )){
                                             //Si existe el participant buscado y no ha sido cambiado se almacena directamente en el histórico
         									if ($participants->oddsDecimal != $participant['oddsDecimal']){
 
@@ -185,7 +185,7 @@ class XmlReaderController extends Controller
                                                 $participantHist->participant_id = $participants->id;
         										$participantHist->save();
         									}else{
-        										$participants->update(['lastUpdateDate'=>$participant['lastUpdateDate'],'lastUpdateTime'=>$participant['lastUpdateTime']]);
+        										$participants->update(['handicap'=>$participant['handicap'],'lastUpdateDate'=>$participant['lastUpdateDate'],'lastUpdateTime'=>$participant['lastUpdateTime']]);
         									}
         								}
         							}

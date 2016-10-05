@@ -26,9 +26,8 @@ function getMarkets($name){
 function getCompetencias($type, $competicion){
 	$today           = Carbon\Carbon::now();
 	$today->timezone = 'Europe/Madrid';
-	$type             = \App\Models\Type::where('name', $type)->first()->id;
-	if($type == null)
-		$type = 0;
+	if($type != '%')
+		$type = \App\Models\Type::where('name', $type)->first()->id;
 	$markets = \App\Models\Market::with(['participants' => function($query){
 										$query->orderBy('participants.oddsDecimal', 'ASC');
 							}])->where(function ($query) use ($today, $competicion, $type){
@@ -49,4 +48,11 @@ function getCompetencias($type, $competicion){
 function getTipoUsuario($username){
 	$tipoUsuario = \App\Models\User::where('username', session('username'))->first()->tipoUsuario;
 	return $tipoUsuario;
+}
+
+function getToday(){
+	$today           = Carbon\Carbon::now();
+	$today->timezone = 'Europe/Madrid';
+
+	return $today;
 }

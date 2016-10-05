@@ -14,7 +14,7 @@ class UpdateParticipantsHistAddHandicap extends Migration
     {
         Schema::table('historico_logros', function(Blueprint $table)
         {
-            $table->float('handicap', 3, 2);
+            $table->float('handicap',6,3);
         });
     }
 

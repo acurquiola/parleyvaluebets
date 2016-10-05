@@ -77,7 +77,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('hockey', 'HockeyController', ['only' => ['index']]);
 
 		//Todos los deportes
-		Route::get('todos/{market}/masApuestas', 'DeportesController@getMoreMarkets');
+		Route::get('todos/{type}/{competicion}/masApuestas', 'DeportesController@getMasCompetencias');
 		Route::resource('todos', 'DeportesController');
 	});
 	

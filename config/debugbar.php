@@ -93,11 +93,11 @@ return [
         'views'           => true,  // Views with their data
         'route'           => true,  // Current route information
         'laravel'         => true, // Laravel version and environment
-        'events'          => true, // All events fired
+        'events'          => false, // All events fired
         'default_request' => false, // Regular or special Symfony request logger
         'symfony_request' => true,  // Only one can be enabled..
         'mail'            => true,  // Catch mail messages
-        'logs'            => true, // Add the latest log messages
+        'logs'            => false, // Add the latest log messages
         'files'           => false, // Show the included files
         'config'          => false, // Display config settings
         'auth'            => false, // Display Laravel authentication status

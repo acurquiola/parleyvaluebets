@@ -14,7 +14,7 @@ class UpdateParticipantsAddHandicap extends Migration
     {
         Schema::table('participants', function(Blueprint $table)
         {
-            $table->float('handicap', 3, 2);
+            $table->float('handicap',6,3);
         });
     }
 
