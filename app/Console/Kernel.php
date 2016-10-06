@@ -42,7 +42,7 @@ class Kernel extends ConsoleKernel
         $minutosFutbolAmericano = TiempoLectura::where('clase_id', $futbolAmericanoID)->first()->minutos;
 
         $schedule->command('xml:beisbol')->cron('/'.$minutosBeisbol.' * *  * * *');
-        $schedule->command('xml:hockeyID')->cron('/'.$minutosHockey.' * *  * * *');
+        $schedule->command('xml:hockey')->cron('/'.$minutosHockey.' * *  * * *');
         $schedule->command('xml:futbolAmericano')->cron('/'.$minutosFutbolAmericano.' * *  * * *');
 
     }
