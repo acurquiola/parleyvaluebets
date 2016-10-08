@@ -122,7 +122,7 @@ class DeportesController extends Controller
 
 			switch ($logros[$name]['deporte']) {
 				case 'Baseball':
-					$deporte['baseball'] += 1;
+					$deporte['beisbol'] += 1;
 					break;
 				case 'NHL':
 					$deporte['hockey'] += 1;
