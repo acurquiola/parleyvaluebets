@@ -73,7 +73,7 @@
 															{{ ($logro['totalPuntosCuotaO'] == 0)?'':$logro['totalPuntosCuotaO'] }}
 														</td>
 														<td rowspan="2" style="width: 50px">
-															<a href="{{ action('DeportesController@getMasCompetencias',['type'=>'NFL', 'name'=>$index]) }}" class="btn btn-circle pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span></a>
+															<a href="{{ action('DeportesController@getMasCompetencias',['type'=>$logro["liga"], 'name'=>$index]) }}" class="btn btn-circle pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span></a>
 														</td>
 													</tr>
 													<tr data-deporte="{{ $logro['deporte'] }}">
