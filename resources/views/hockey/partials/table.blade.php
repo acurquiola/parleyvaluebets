@@ -53,7 +53,7 @@
 						<tr>
 							@if($nombre != 'Más Apuestas')
 								<td colspan="4">
-									<a href="{{ action('HockeyController@getMasCompetencias',[$market->type_id, $market->name]) }}" class="btn btn-primary pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> APUESTAS</a>
+									<a href="{{ action('HockeyController@getCompetencias',['type'=>'NHL', 'name'=>$market->name]) }}" class="btn btn-primary pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span> APUESTAS</a>
 								</td>
 							@endif	
 						</tr>

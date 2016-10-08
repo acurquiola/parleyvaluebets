@@ -3,55 +3,59 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Models\Clase;
-use App\Models\Market;
-use App\Models\Type;
+use App\Models\HistoricoLogro;
 use Illuminate\Http\Request;
 
-class HockeyController extends Controller
+class hockeyController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-    	return view('hockey.index', compact('competiciones', 'nombres', 'className'));
+        return view('hockey.index');
     }
 
-    public function getCompeticiones($typeID, $competicion)
+    public function getCompetencias($type, $name)
     {
-		$type            = Type::find($typeID);
-		$markets         = getCompetencias($type->name, $competicion);
-		$nombre          = $competicion;
-		$participantHist = [];
+        $markets         = getCompetencias($type, $name);
+        $nombre          = $name;
+
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
                 if($participant->historico->count() > 0){
-                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                    $participantHist[] = HistoricoLogro::where('participant_id', $participant->id)
                                                                 ->orderBy('id', 'DESC')
                                                                 ->first();
                 }
             }
         }
       
-        return view('hockey.competicion', compact('markets', 'nombre', 'participantHist'));
+        return view('hockey.competicion', compact('markets', 'nombre', 'type', 'participantHist'));
     }
 
-    public function getMasCompetencias($typeID, $competicion){
-		$nombre          = 'Más Apuestas';
-		$marketExp       = explode('-', $competicion);
-		$type            = Type::find($typeID);
-		$markets         = getCompetencias($type->name, $marketExp[0]);
-		$participantHist = [];
+    public function getMasCompetencias($type, $name)
+    {
+        dd($type, $name);
+        $nombre          = 'Más Apuestas';
+        $marketExp       = explode('-', $name);
+        $markets         = getCompetencias($type, trim($marketExp[0]));
+        $participantHist = [];
 
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
                 if($participant->historico->count() > 0){
-                    $participantHist[] = \App\Models\HistoricoLogro::where('participant_id', $participant->id)
+                    $participantHist[] = HistoricoLogro::where('participant_id', $participant->id)
                                                                 ->orderBy('id', 'DESC')
                                                                 ->first();
                 }
             }
         }
       
-        return view('hockey.competicion', compact('markets', 'market', 'nombre', 'participantHist'));
+        return view('hockey.competicion', compact('markets', 'market', 'type', 'nombre', 'participantHist'));
     }
 }

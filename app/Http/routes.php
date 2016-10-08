@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('futbolAmericano', 'FutbolAmericanoController', ['only' => ['index']]);
 
 		//Hockey
-		Route::get('hockey/{type}/{competicion}', 'HockeyController@getCompeticiones');
+		Route::get('hockey/{type}/{competicion}', 'HockeyController@getCompetencias');
 		Route::get('hockey/{type}/{competicion}/masApuestas', 'HockeyController@getMasCompetencias');
 		Route::resource('hockey', 'HockeyController', ['only' => ['index']]);
 

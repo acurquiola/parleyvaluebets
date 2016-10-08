@@ -21,26 +21,36 @@
 										
     									<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     										<ul class="treeview-menu">
-		    									@foreach($competiciones as $competicion)
-		    										<h5 class="col-sm-12"><strong>{{ $competicion->name }}</strong></h5>
-		    										@foreach($nombres as $nombre => $comp)
-		    											@if($comp == $competicion->id)
-				                                            <ul class="nav navbar-nav col-sm-3" >
-				                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompeticiones', ['type'=>$comp, 'competicion'=>$nombre]) }}">{{ $nombre }}</a></li>
-					                                    	</ul>
-					                                    @endif
-			                                    	@endforeach
-			                                    @endforeach
+
+		    									<h5><strong>NHL</strong></h5>
+		    									{{-- <h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas de Ganador Final</strong></h6> --}}
+
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Stanley Cup Winner']) }}">Ganador de Stanley Cup</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Original Six Stanley Cup Winner']) }}">Ganador de Original Six Stanley Cup</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Regular Season Points']) }}">Total de puntos en temporada regular</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Conference Winner']) }}">Ganador de Conferencia</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Division Winner']) }}">Ganador de División</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Winning State/Province']) }}">Estado/Provincia Ganadora</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Winning Conference']) }}">Conferencia Ganadora</a></li>
+	                                            </ul>
 		                                    </ul>
     									</div>
+
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	<br>
 	<br>
 	@endsection
