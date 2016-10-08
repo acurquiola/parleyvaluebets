@@ -40,7 +40,6 @@ class hockeyController extends Controller
 
     public function getMasCompetencias($type, $name)
     {
-        dd($type, $name);
         $nombre          = 'Más Apuestas';
         $marketExp       = explode('-', $name);
         $markets         = getCompetencias($type, trim($marketExp[0]));
