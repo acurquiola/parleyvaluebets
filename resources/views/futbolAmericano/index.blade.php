@@ -67,7 +67,7 @@
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- 1st Half Money Line']) }}">Ganador con Hándicap - Primera mitad</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total 1st Half Touchdowns']) }}">Total deTD - Primera mitad</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total 1st Half Touchdowns']) }}">Total de TD - Primera mitad</a></li>
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- 1st Half Result/2nd Half Result']) }}">Resultado 1er Tiempo / 2do Tiempo</a></li>
 	                                            </ul>
 
@@ -76,6 +76,10 @@
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Home Team Quarters Won']) }}">Cuartos ganados por el equipo local</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Away Team Quarters Won']) }}">Cuartos ganados por el equipo visitante</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Highest Scoring Quarter']) }}">Cuarto con más puntos</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                            </ul>
@@ -83,12 +87,14 @@
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Totales</strong></h6>
 	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Alternative Total Points']) }}">Total de Puntos Alternativo</a></li>
-	                                            </ul>
-	                                            <ul class="nav navbar-nav col-sm-4" >
-	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total Home Touchdowns']) }}">Total de TD por el equipo local</a></li>
-	                                            </ul>
-	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total Match Points Odd/Even']) }}">Total Par/Impar</a></li>
+
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- 1st Half Total Points']) }}">Total de Puntos - Primera mitad</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- 2nd Half Total Points']) }}">Total de Puntos - Segunda mitad</a></li>
 	                                            </ul>
 
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Hándicaps</strong></h6>
@@ -105,8 +111,10 @@
 	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- 1st Team Touchdown']) }}">Primer equipo en conseguir TD</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total Away Touchdowns']) }}">Total de TD por el equipo visitante</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('FutbolAmericanoController@getCompetencias', ['type' => 'NFL', 'name' => '- Total Away Touchdowns']) }}">Total de TD por el equipo visitante</a></li>
 	                                            </ul>
 
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Estadísticas</strong></h6>

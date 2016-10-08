@@ -48,7 +48,7 @@ class XmlHockey extends Command
 
         $rutas = ['http://185.81.165.215/sport/nhl/nhl',
                   'http://185.81.165.215/sport/nhl/d_chance/double_chance',
-//                  'http://185.81.165.215/sport/nhl/draw_no_bet/draw_no_bet',
+                  'http://185.81.165.215/sport/nhl/draw_no_bet/draw_no_bet',
                   'http://185.81.165.215/sport/nhl/higher_lower/higher_lower',
                   'http://185.81.165.215/sport/nhl/m_result/m_result',
                   'http://185.81.165.215/sport/nhl/score/correct_score',
