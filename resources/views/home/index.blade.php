@@ -19,9 +19,10 @@
 							<div class="tab-pane active" id="tab1">
 								<div class="pull-right">
 									<div class="btn-group">
-										<button type="button" class="btn btn-default btn-filter" data-target="all" >Todos</button> 
-										<button type="button" class="btn btn-primary btn-filter" data-target="Baseball" >Béisbol</button>
-										<button type="button" class="btn btn-warning btn-filter" data-target="American Football" >Fútbol Americano</button>
+										<button type="button" class="btn btn-default btn-filter" data-target="all" >Todos</button>
+										@if($deporte['beisbol'] > 0)<button type="button" class="btn btn-primary btn-filter" data-target="Baseball" >Béisbol</button>@endif
+										@if($deporte['futbolAmericano'] > 0)<button type="button" class="btn btn-warning btn-filter" data-target="American Football" >Fútbol Americano</button>@endif
+										@if($deporte['hockey'] > 0)<button type="button" class="btn btn-success btn-filter" data-target="NHL" >Hockey</button>@endif
 									</div>
 								</div>
 								<div class="table-container">
@@ -46,7 +47,7 @@
 												</tr>
 											@else
 												@foreach($logros as $index => $logro)
-													<tr data-status="{{ $logro['deporte'] }}">
+													<tr data-deporte="{{ $logro['deporte'] }}">
 														<td class="text-center" rowspan="2" style="width: 100px" >
 															{{ $logro['fecha'] }}
 														</td>
@@ -75,7 +76,7 @@
 															<a href="{{ action('DeportesController@getMasCompetencias',['type'=>'NFL', 'name'=>$index]) }}" class="btn btn-circle pull-right moreMarkets-btn"><span class="glyphicon glyphicon-plus"></span></a>
 														</td>
 													</tr>
-													<tr data-status="{{ $logro['deporte'] }}">
+													<tr data-deporte="{{ $logro['deporte'] }}">
 														<td class="text-left" style="width: 250px">
 															{{ $logro['equipo2'] }}
 														</td>
@@ -121,8 +122,8 @@
 			$('.btn-filter').on('click', function () {
 				var $target = $(this).data('target');
 				if ($target != 'all') {
-					$('.table tr').css('display', 'none');
-					$('.table tr[data-status="' + $target + '"]').fadeIn('slow');
+					$('.table tbody tr').css('display', 'none');
+					$('.table tbody tr[data-deporte="' + $target + '"]').fadeIn('slow');
 				} else {
 					$('.table tr').css('display', 'none').fadeIn('slow');
 				}

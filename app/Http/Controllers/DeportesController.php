@@ -14,9 +14,14 @@ class DeportesController extends Controller
 
     //Listado de Juegos
 	public function index(){
-		$nombre = 'Apuestas';
-		$today  = getToday();
-		$logros = [];
+		$nombre          = 'Apuestas';
+		$today           = getToday();
+		$logros          = [];
+		$deporte = [
+					'beisbol'         => 0,
+					'hockey'          => 0,
+					'futbolAmericano' => 0
+					];
 		$types  = Type::where('name', 'NFL')
 									->orWhere('name', 'MLB')
 									->lists('id')
@@ -115,6 +120,19 @@ class DeportesController extends Controller
 			$logros[$name]['equipo1'] = $juego[0];
 			$logros[$name]['equipo2'] = $juego[1];
 
+			switch ($logros[$name]['deporte']) {
+				case 'Baseball':
+					$deporte['baseball'] += 1;
+					break;
+				case 'NHL':
+					$deporte['hockey'] += 1;
+					break;
+				case 'American Football':
+					$deporte['futbolAmericano'] += 1;
+					break;
+			};
+
+
 				foreach ($market->participants as $participant) {
 					if($participant->isChange == 0){
 
@@ -185,7 +203,7 @@ class DeportesController extends Controller
 				}
 			}
 		}
-		return view('home.index', compact('markets', 'logros'));
+		return view('home.index', compact('logros', 'deporte'));
 	}
 
 

@@ -12,17 +12,6 @@ class HockeyController extends Controller
 {
     public function index()
     {
-		$className       = 'NHL';
-		$hockeyID        = Clase::where('name', $className)->first()->id;
-		$competiciones   = Type::where('clase_id', $hockeyID)->get();
-		$competicionesID = $competiciones->lists('id')->toArray();
-		$mercados        = Market::select('name', 'id', 'type_id')->whereIn('type_id', $competicionesID)->get()->toArray();
-
-		foreach ($mercados as $id => $mn) {
-			$nMExp   = explode('-', $mn['name']);
-			$nombres[trim($nMExp[1])] = $mn['type_id'];
-		}
-
     	return view('hockey.index', compact('competiciones', 'nombres', 'className'));
     }
 
