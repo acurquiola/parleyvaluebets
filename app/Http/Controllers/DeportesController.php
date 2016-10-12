@@ -24,6 +24,7 @@ class DeportesController extends Controller
 					];
 		$types  = Type::where('name', 'NFL')
 									->orWhere('name', 'MLB')
+									->orWhere('name', 'NHL')
 									->lists('id')
 									->toArray();
 
@@ -35,7 +36,9 @@ class DeportesController extends Controller
 								  		->where(function($query){
 								  			$query->where('markets.name', 'LIKE', '%- Total Runs')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Goals')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Puck Line Handicap')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
 								  		});
 								  })->orWhere(function($query) use ($today, $types){
@@ -45,7 +48,9 @@ class DeportesController extends Controller
 								  		->where(function($query){
 								  			$query->where('markets.name', 'LIKE', '%- Total Runs')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Goals')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Puck Line Handicap')
 								  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
 								  		});
 									})->orderBy('markets.betTillDate', 'ASC')

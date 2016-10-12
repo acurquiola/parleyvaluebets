@@ -6,7 +6,7 @@ use App\Http\Requests;
 use App\Models\HistoricoLogro;
 use Illuminate\Http\Request;
 
-class hockeyController extends Controller
+class HockeyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,8 +38,8 @@ class hockeyController extends Controller
         return view('hockey.competicion', compact('markets', 'nombre', 'type', 'participantHist'));
     }
 
-    public function getMasCompetencias($type, $name)
-    {
+    public function getMasCompetencias($type, $name){
+
         $nombre          = 'Más Apuestas';
         $marketExp       = explode('-', $name);
         $markets         = getCompetencias($type, trim($marketExp[0]));
