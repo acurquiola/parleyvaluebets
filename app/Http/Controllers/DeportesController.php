@@ -73,10 +73,12 @@ class DeportesController extends Controller
 							  		->whereIn('markets.type_id', $types)
 							  		->where('markets.name', 'like', $p[0].'%')
 							  		->where(function($query){
-							  			$query->where('markets.name', 'LIKE', '%- Total Runs')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
+								  			$query->where('markets.name', 'LIKE', '%- Total Runs')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Match Goals')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Puck Line Handicap')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
 							  		});
 							  })->orWhere(function($query) use ($today, $types, $p){
 									$query->where('markets.betTillDate', '=', $today->toDateString())
@@ -84,10 +86,12 @@ class DeportesController extends Controller
 									->where('markets.betTillTime', '>', $today->toTimeString())
 							  		->where('markets.name', 'like', $p[0].'%')
 							  		->where(function($query){
-							  			$query->where('markets.name', 'LIKE', '%- Total Runs')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
-							  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
+								  			$query->where('markets.name', 'LIKE', '%- Total Runs')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Points')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Total Match Goals')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Spread')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Puck Line Handicap')
+								  				  ->orWhere('markets.name', 'LIKE', '%- Money Line');
 							  		});
 								})->orderBy('markets.betTillDate', 'ASC')
 								->orderBy('markets.betTillTime', 'ASC')
@@ -150,7 +154,7 @@ class DeportesController extends Controller
 							}
 						}
 
-						if(trim($juego[2]) == 'Total Points' || trim($juego[2]) == 'Total Runs' ){
+						if(trim($juego[2]) == 'Total Points' || trim($juego[2]) == 'Total Runs' || trim($juego[2]) == 'Total Match Goals' ){
 							$logros[$name]['totalPuntos'] = $participant->handicap;
 						
 							if($participant->name == 'Under'){
@@ -161,7 +165,7 @@ class DeportesController extends Controller
 							}
 						}
 
-						if(trim($juego[2]) == 'Spread'){
+						if(trim($juego[2]) == 'Spread' || trim($juego[2]) == 'Puck Line Handicap' ){
 							if($participant->name == $logros[$name]['equipo1']){
 								$logros[$name]['totalHandicap1'] = $participant->handicap;
 								$logros[$name]['handicapCuota1'] = $participant->oddsDecimal;
@@ -184,7 +188,7 @@ class DeportesController extends Controller
 								$logros[$name]['moneyLine2'] = $participantHist->oddsDecimal;
 							}
 						}
-						if(trim($juego[2]) == 'Total Points' || trim($juego[2]) == 'Total Runs' ){
+						if(trim($juego[2]) == 'Total Points' || trim($juego[2]) == 'Total Runs' || trim($juego[2]) == 'Total Match Goals' ){
 							$logros[$name]['totalPuntos'] = $participantHist->handicap;
 						
 							if($participantHist->name == 'Under'){
@@ -194,7 +198,7 @@ class DeportesController extends Controller
 								$logros[$name]['totalPuntosCuotaO'] = $participantHist->oddsDecimal;
 							}
 						}
-						if(trim($juego[2]) == 'Spread'){
+						if(trim($juego[2]) == 'Spread' || trim($juego[2]) == 'Puck Line Handicap'){
 							if($participantHist->name == $logros[$name]['equipo1']){
 								$logros[$name]['totalHandicap1'] = $participantHist->handicap;
 								$logros[$name]['handicapCuota1'] = $participantHist->oddsDecimal;
