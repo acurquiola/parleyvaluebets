@@ -61,7 +61,7 @@
 
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Goles</strong></h6> 
 	                                            <ul class="nav navbar-nav col-sm-4" >
-	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Goles del Partido</a></li>
+	                                                {{-- <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Goles del Partido</a></li> --}}
 	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Total Goals']) }}">Total de Goles por Equipo</a></li>
 	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Time Of 1st Goal']) }}">Tiempo del 1er Gol</a></li>
 	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Easy As 1-2-3']) }}">1, 2 o 3 Goles en cada Tiempo</a></li>
@@ -75,9 +75,35 @@
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
 	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- Total Match Goals Odd/Even']) }}">Total de Goles (Par/Impar)</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Total de Goles de Equipo Local (Par/Impar)</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Total de Goles de Equipo Visitante (Par/Impar)</a></li>
+	                                               {{--  <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Total de Goles de Equipo Local (Par/Impar)</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Total de Goles de Equipo Visitante (Par/Impar)</a></li> --}}
 	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Goals Odd/Even']) }}">Total de Goles en el 2do Periodo (Par/Impar)</a></li>
+	                                            </ul>
+
+		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Periodos</strong></h6> 
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 1st Period Money Line']) }}">1er Periodo - Ganador</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Money Line']) }}">2do Periodo - Ganador</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 3rd Period Money Line']) }}">3er Periodo - Ganador</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 1st Period Betting']) }}">¿Quién Ganará el 1er Periodo?</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Betting']) }}">¿Quién Ganará el 2do Periodo?</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 3rd Period Betting']) }}">¿Quién Ganará el 3er Periodo?</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" > 
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 1st Period Goals']) }}">1er Periodo - Total de Goles</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Goals']) }}">2do Periodo - Total de Goles</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 3rd Period Goals']) }}">3er Periodo - Total de Goles</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 1st Period Goals Odd/Even']) }}">Total de Goles en el 1er Periodo (Par/Impar)</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Goals Odd/Even']) }}">Total de Goles en el 2do Periodo (Par/Impar)</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 3rd Period Goals Odd/Even']) }}">Total de Goles en el 3er Periodo (Par/Impar)</a></li>
+	                                            </ul>
+	                                            <ul class="nav navbar-nav col-sm-4" >
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 1st Period Puck Line']) }}">1er Periodo - Hándicap</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 2nd Period Puck Line']) }}">2do Periodo - Hándicap</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- 3rd Period Puck Line']) }}">3er Periodo - Hándicap</a></li>
+	                                              {{--   <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">Carrera a Goles del 1er Periodo</a></li> --}}
+	                                                {{-- <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">¿El Equipo Visitante Ganará Todos los Periodos?</a></li> --}}
+	                                                {{-- <li class=" col-sm-12" ><a href="{{ action('HockeyController@getCompetencias', ['type' => 'NHL', 'name' => '- ']) }}">¿El Equipo Local Ganará Todos los Periodos?</a></li> --}}
 	                                            </ul>
 		                                    </ul>
     									</div>
