@@ -38,30 +38,30 @@ class XmlReaderController extends Controller
 
     public function getXml()
     {
-        	$rutas=[    /*'http://185.81.165.215/baseball/Baseball',
+        	$rutas=[    'http://185.81.165.215/baseball/Baseball',
                         'http://185.81.165.215/baseball/score/correct_score',
                         'http://185.81.165.215/baseball/higher_lower/higher_lower',
                         'http://185.81.165.215/baseball/m_result/m_result',
                         'http://185.81.165.215/baseball/odd_even/odd_even',
                         'http://185.81.165.215/baseball/win_win/win_win',
                         'http://185.81.165.215/baseball/f_score/f_score',
-                        'http://185.81.165.215/baseball/ag/ag',*/
-                        /*'http://185.81.165.215/sport/nhl/nhl',
+                        'http://185.81.165.215/baseball/ag/ag',
+                        'http://185.81.165.215/sport/nhl/nhl',
                         'http://185.81.165.215/sport/nhl/d_chance/double_chance',
                         'http://185.81.165.215/sport/nhl/draw_no_bet/draw_no_bet',
                         'http://185.81.165.215/sport/nhl/higher_lower/higher_lower',
                         'http://185.81.165.215/sport/nhl/m_result/m_result',
                         'http://185.81.165.215/sport/nhl/score/correct_score',
                         'http://185.81.165.215/sport/nhl/western/western',
-                        'http://185.81.165.215/sport/nhl/win_win/win_win', */
-                        /*'http://185.81.165.215/sport/nfl/nfl',
+                        'http://185.81.165.215/sport/nhl/win_win/win_win', 
+                        'http://185.81.165.215/sport/nfl/nfl',
                         'http://185.81.165.215/sport/nfl/ag/ag',
                         'http://185.81.165.215/sport/nfl/f_score/f_score',
                         'http://185.81.165.215/sport/nfl/higher_lower/higher_lower',
                         'http://185.81.165.215/sport/nfl/l_score/l_score',
                         'http://185.81.165.215/sport/nfl/m_result/m_result',
                         'http://185.81.165.215/sport/nfl/western/western',
-                        'http://185.81.165.215/sport/nfl/win_win/win_win',*/
+                        'http://185.81.165.215/sport/nfl/win_win/win_win',
                         'http://185.81.165.215/sport/nba/nba', 
                         'http://185.81.165.215/sport/nba/higher_lower/higher_lower',
                         'http://185.81.165.215/sport/nba/m_result/m_result',
