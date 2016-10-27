@@ -41,9 +41,9 @@
     										<ul class="nav navbar-nav">
                                                 <li {{ (\Request::is('deportes/beisbol*'))?"class=active":"" }}><a href="{{ action('BeisbolController@index') }}">Béisbol</a></li>
                                                 <li {{ (\Request::is('deportes/hockey*'))?"class=active":"" }}><a href="{{ action('HockeyController@index') }}">Hockey</a></li>
-    											<li {{ (\Request::is('deportes/futbolAmericano*'))?"class=active":"" }}><a href="{{ action('FutbolAmericanoController@index') }}">Fútbol Americano</a></li>
+                                                <li {{ (\Request::is('deportes/futbolAmericano*'))?"class=active":"" }}><a href="{{ action('FutbolAmericanoController@index') }}">Fútbol Americano</a></li>
+    											<li {{ (\Request::is('deportes/baloncesto*'))?"class=active":"" }}><a href="{{ action('BaloncestoController@index') }}">Baloncesto</a></li>
     											<li><a href="#">Fútbol</a></li>
-    											<li><a href="#">Baloncesto</a></li>
     										</ul>
     										<ul class="nav navbar-nav">
     											<li><a href="#">Voleibol</a></li>

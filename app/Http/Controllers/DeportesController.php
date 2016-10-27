@@ -20,13 +20,15 @@ class DeportesController extends Controller
 		$deporte = [
 					'beisbol'         => 0,
 					'hockey'          => 0,
-					'futbolAmericano' => 0
+					'futbolAmericano' => 0,
+					'baloncesto' 	  => 0
 					];
 		$types  = Type::where('name', 'NFL')
-									->orWhere('name', 'MLB')
-									->orWhere('name', 'NHL')
-									->lists('id')
-									->toArray();
+					->orWhere('name', 'MLB')
+					->orWhere('name', 'NHL')
+					->orWhere('name', 'NBA')
+					->lists('id')
+					->toArray();
 
 
 		$partidos = DB::table('markets')
@@ -138,6 +140,9 @@ class DeportesController extends Controller
 					break;
 				case 'American Football':
 					$deporte['futbolAmericano'] += 1;
+					break;
+				case 'NBA':
+					$deporte['baloncesto'] += 1;
 					break;
 			};
 

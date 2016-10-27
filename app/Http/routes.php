@@ -76,6 +76,11 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('hockey/{type}/{competicion}/masApuestas', 'HockeyController@getMasCompetencias');
 		Route::resource('hockey', 'HockeyController', ['only' => ['index']]);
 
+		//Baloncesto
+		Route::get('baloncesto/{type}/{competicion}', 'BaloncestoController@getCompetencias');
+		Route::get('baloncesto/{type}/{competicion}/masApuestas', 'BaloncestoController@getMasCompetencias');
+		Route::resource('baloncesto', 'BaloncestoController', ['only' => ['index']]);
+
 		//Todos los deportes
 		Route::get('todos/{type}/{competicion}/masApuestas', 'DeportesController@getMasCompetencias');
 		Route::resource('todos', 'DeportesController');
