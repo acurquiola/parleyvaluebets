@@ -23,6 +23,7 @@
 										@if($deporte['beisbol'] > 0)<button type="button" class="btn btn-primary btn-filter" data-target="Baseball" >Béisbol</button>@endif
 										@if($deporte['futbolAmericano'] > 0)<button type="button" class="btn btn-warning btn-filter" data-target="American Football" >Fútbol Americano</button>@endif
 										@if($deporte['hockey'] > 0)<button type="button" class="btn btn-success btn-filter" data-target="NHL" >Hockey</button>@endif
+										@if($deporte['baloncesto'] > 0)<button type="button" class="btn btn-danger btn-filter" data-target="US Basketball" >Baloncesto</button>@endif
 									</div>
 								</div>
 								<div class="table-container">

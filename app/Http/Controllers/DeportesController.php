@@ -30,7 +30,6 @@ class DeportesController extends Controller
 					->lists('id')
 					->toArray();
 
-
 		$partidos = DB::table('markets')
 					  ->where(function ($query) use ($today, $types){
 								  $query->where('markets.betTillDate', '>', $today->toDateString())
@@ -58,10 +57,6 @@ class DeportesController extends Controller
 									})->orderBy('markets.betTillDate', 'ASC')
 									->orderBy('markets.betTillTime', 'ASC')
 									->get();
-
-
-
-
 
 
 		foreach ($partidos as $id => $partido) {
@@ -141,7 +136,7 @@ class DeportesController extends Controller
 				case 'American Football':
 					$deporte['futbolAmericano'] += 1;
 					break;
-				case 'NBA':
+				case 'US Basketball':
 					$deporte['baloncesto'] += 1;
 					break;
 			};
@@ -247,6 +242,10 @@ class DeportesController extends Controller
 
         	case 'NHL':
         		$route = 'hockey.competicion';
+        		break;
+
+        	case 'NBA':
+        		$route = 'baloncesto.competicion';
         		break;
         }
 
