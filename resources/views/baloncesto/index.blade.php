@@ -26,21 +26,13 @@
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas de Ganador Final</strong></h6>
 
 	                                            <ul class="nav navbar-nav col-sm-4" >
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador del Campeonato</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de Conferencia Oeste</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de Conferencia Este</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">MVP de la Liga Regular</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- Championship Winner']) }}">Ganador del Campeonato</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de División Central</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de División Pacífico</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de División Suroeste</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Entrenador del Año</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- Conference Winner']) }}">Ganador de Conferencia</a></li>
 	                                            </ul>
 	                                            <ul class="nav navbar-nav col-sm-4" >
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de División Noroeste</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Ganador de División Sudeste</a></li>
-	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- ']) }}">Rookie del Año</a></li>
+	                                                <li class=" col-sm-12" ><a href="{{ action('BaloncestoController@getCompetencias', ['type' => 'NBA', 'name' => '- Division Winner']) }}">Ganador de División</a></li>
 	                                            </ul>
 
 		    									<h6 style="margin-left: 15px" class="col-sm-12"><strong>Apuestas por Encuentros</strong></h6>
