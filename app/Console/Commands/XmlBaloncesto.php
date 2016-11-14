@@ -11,14 +11,14 @@ class XmlBaloncesto extends Command
      *
      * @var string
      */
-    protected $signature = 'xml:command';
+    protected $signature = 'xml:baloncesto';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros de baloncesto.';
 
     /**
      * Create a new command instance.
