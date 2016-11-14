@@ -28,7 +28,7 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="tabCompeticiones">
-							@include('futbolAmericano.partials.table')
+							@include('baloncesto.partials.table')
 						</div>
 					</div>
 				</div>
