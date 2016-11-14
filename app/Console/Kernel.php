@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         Commands\XmlBeisbol::class,
         Commands\XmlHockey::class,
         Commands\XmlFutbolAmericano::class,
+        Commands\XmlBaloncesto::class,
     ];
 
     /**

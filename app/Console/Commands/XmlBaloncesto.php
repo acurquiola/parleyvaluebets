@@ -2,15 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Clase;
-use App\Models\HistoricoLogro;
-use App\Models\Market;
-use App\Models\Participant;
-use App\Models\Type;
-use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
-use XmlParser;
 
 class XmlBaloncesto extends Command
 {
@@ -19,14 +11,14 @@ class XmlBaloncesto extends Command
      *
      * @var string
      */
-    protected $signature = 'xml:baloncesto';
+    protected $signature = 'xml:command';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Lectura automatizada de los archivos XML que contienen los logros de baloncesto.';
+    protected $description = 'Command description';
 
     /**
      * Create a new command instance.
@@ -43,7 +35,7 @@ class XmlBaloncesto extends Command
      *
      * @return mixed
      */
-     public function handle()
+    public function handle()
     {
         $rutas  =  ['http://185.81.165.215/sport/nba/nba', 
                     'http://185.81.165.215/sport/nba/higher_lower/higher_lower',
