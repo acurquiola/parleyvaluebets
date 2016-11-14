@@ -20,11 +20,10 @@ class BaloncestoController extends Controller
 
     public function getCompetencias($type, $name)
     {
+
         $markets         = getCompetencias($type, $name);
         $nombre          = $name;
-
-        $participantHist = [];
-
+        
         foreach ($markets as $market) {
             foreach ($market->participants as $participant) {
                 if($participant->historico->count() > 0){

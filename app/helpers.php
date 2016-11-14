@@ -24,6 +24,7 @@ function getMarkets($name){
 }
 
 function getCompetencias($type, $competicion){
+
 	$today           = Carbon\Carbon::now();
 	$today->timezone = 'Europe/Madrid';
 	if($type != '%')
