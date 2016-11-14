@@ -2,7 +2,15 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Clase;
+use App\Models\HistoricoLogro;
+use App\Models\Market;
+use App\Models\Participant;
+use App\Models\Type;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
+use XmlParser;
 
 class XmlBaloncesto extends Command
 {
